@@ -1,0 +1,13 @@
+GDSL: qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+
+Expected: 40
+Result: 40
+
+
+
+Errors/Count: 0/1
+

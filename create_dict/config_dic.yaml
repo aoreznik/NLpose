@@ -1,0 +1,15 @@
+# Config file
+# Used in create_dict.py, fragment.py, make_fasta.py, first loaded in run_dict.py
+#
+# Common directrory for all processing. All other files and folders 
+# described below will be created inside this one.
+dbSNP : "data/38-All.vcf.gz"
+illuminaName_rsID : "data/infiniumcoreexome-24-v1-1-a-b138-rsids.txt"
+atlasID_rsID : "/home/bio/snp_new/snp_name.csv"
+ref_genome : "/home/bio/data/hg38_23chrom/chroms/hg38_23chrom.fa"
+numb_threads : '8'
+manifest : 'data/GSAsharedCUSTOM_20018389_A2.csv'
+snp_hgvs_genome : 'data/snp_hgvs2.csv'
+raw_data : 'data/Atlas_61_48_FinalReport.txt'
+atlas_minor_allele : 'data/from_atlas_dict.txt'
+parced_allels : 'data/freq_from_dbsnp.txt'

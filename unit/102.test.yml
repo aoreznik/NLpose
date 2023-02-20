@@ -1,0 +1,65 @@
+# самый базовый тест
+
+sample : |
+    rs182549    T      T
+    rs4577902   A      A
+    rs2025804   A      A
+    rs666       ATC    T
+
+
+values :
+
+
+tests  :
+  m1:
+    exp: |
+      not(
+        or(
+          and(
+            exists("rs4988235"),
+            "rs4988235 REV T/N"
+          ),
+          "rs182549 FWD T/N"
+        )
+      )
+    val                                   :  false
+  m2:
+    exp: |
+      or (
+        and (
+          exists ("rs4577902"),
+          sum (
+            count ("rs2025804 FWD", "G"),
+            count ("rs4577902 REV", "T")
+          ) == 0
+        ),
+        and (
+          not (exists ("rs4577902")),
+          sum (
+            count ("rs2025804 FWD", "G"),
+            count ("rs791607 REV", "T")
+          ) == 0
+        )
+      )
+    val                                   : false
+
+  ("rs666 FWD ATC/T")                     : true
+  ("rs666 FWD CTA/T")                     : true
+  ("rs666 FWD T/CTA")                     : true
+  ("rs666 FWD T/ATC")                     : true
+  ("rs666 REV A/TAG")                     : true
+  ("rs666 REV TAG/A")                     : true
+  ("rs666 REV A/GAT")                     : true
+  ("rs666 REV GAT/A")                     : true
+
+  # new
+  ("rs666 REV TGA/A")                     : false
+  ("rs666 REV A/AGT")                     : false
+  ("rs666 FWD ATC")                       : false
+  ("rs666 REV TAG")                       : false
+  ("rs666 REV N")                         : false
+  ("rs666 REV N/N")                       : true
+
+  ("rs000 FWD A/GAT")                     : null
+  ("rs000 REV GAT/A")                     : null
+  ("rs000 REV N/N")                       : null

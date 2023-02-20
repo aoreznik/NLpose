@@ -1,0 +1,52 @@
+GDSL: and ( "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )
+Expected: NULL
+Result: NULL
+
+GDSL: and ( "rs1805086 REV A/A", "rs2854464 FWD A/A" )
+Expected: NULL
+Result: NULL
+
+GDSL: and ( "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: and ( "rs1805086 REV G/G", "rs2854464 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast (2, "rs1805086 REV A/A", "rs2854464 FWD A/A" )
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast (2, "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1805086 REV G/G", "rs2854464 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV A/A", not ("rs2222222 FWD A/A") )
+Expected: true
+Result: true
+
+GDSL: atLeast (2, "rs1111111 REV A/A", "rs2222222 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV A/G", not ( "rs2222222 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV G/G", "rs2222222 FWD A/A" )
+Expected: false
+Result: false
+
+
+
+Errors/Count: 0/12
+

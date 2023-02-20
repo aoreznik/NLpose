@@ -1,0 +1,11 @@
+#
+# haplo2
+#
+
+values:
+  gender.male   : true
+  gender.female : false
+
+tests:
+  haplo/Y       : I1
+  haplo/MT      : H20

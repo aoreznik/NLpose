@@ -1,0 +1,271 @@
+﻿#
+# самый базовый тест by RnD
+#
+
+sample : |
+    rs123       T      A
+    rs321       A      T
+    
+    rs111       T
+    
+    rs222       AT     AG
+    
+    rs333       AT     AT
+    
+    rs444       D     I
+    rs555       I     I
+    rs666       -     -
+    rs777       C     -
+    rs888       D     D
+    rs999       I
+    rs1010      D
+    rs1111      -
+    rs1212      ATC
+
+values :
+    gender.male    : true
+    blood.value    : 120
+    somevar.float  : 5.05
+    somevar.null   : null
+
+    age            : 33
+
+tests :
+    exists("rs123")                                                               : true
+    exists("rs000")                                                               : false
+    count("rs123 FWD", "T")                                                       : 1
+    atLeast(2, exists("rs123"), exists("rs321"))                                  : true
+    or(exists("rs123"), exists("rs124"))                                          : true
+    or(exists("rs000"), exists("rs124"))                                          : false
+    any(exists("rs000"), exists("rs124"))                                         : false
+    and(exists("rs000"), exists("rs124"))                                         : false
+    and(exists("rs123"), exists("rs321"))                                         : true
+    all(exists("rs123"), exists("rs321"))                                         : true
+
+    sum(count("rs123 FWD", "T"),count("rs321 FWD", "T"))                          : 2
+    sum(1)                                                                        : 1
+
+    sum(count("rs000 FWD", "T"), count("rs321 FWD", "T"))                         : null
+
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) > 0                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) >= 0                     : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) < 0                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) <= 0                     : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) == 0                     : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) + 0                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) - 0                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) * 0                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) / 1                      : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) ^ 1                      : null
+
+    not(and(exists("rs123"), exists("rs321")))                                    : false
+
+    count("rs222 REV", "AT")                                                      : 1
+    count("rs222 REV", "TA")                                                      : 1
+    count("rs333 REV", "AT")                                                      : 2
+    count("rs333 REV", "TA")                                                      : 2
+
+    # RSN
+    ("rs123 FWD T/N")                                                             : true
+    ("rs123 FWD T/A")                                                             : true
+    ("rs123 FWD A/T")                                                             : true
+    ("rs123 FWD A")                                                               : false
+    ("rs123 FWD T")                                                               : false
+
+    # REV
+    ("rs123 REV A/N")                                                             : true
+    ("rs123 REV A/T")                                                             : true
+    ("rs123 REV T/A")                                                             : true
+    ("rs123 REV T")                                                               : false
+    ("rs123 REV A")                                                               : false
+
+    # long REV
+    #изменено 29.03.19
+    ("rs222 REV AT/CT")                                                           : false 
+
+    # change
+    #изменено 29.03.19
+    ("rs222 REV CT/AT")                                                           : false
+    ("rs222 FWD AG/AT")                                                           : true
+    ("rs222 FWD AG/N")                                                            : true
+    ("rs222 FWD AG")                                                              : false
+
+
+    # rs111 T
+    ("rs111 FWD T")                                                               : true
+    ("rs111 REV A")                                                               : true
+    ("rs111 FWD I")                                                               : true
+    ("rs111 REV I")                                                               : true
+    ("rs111 FWD N")                                                               : true
+    ("rs111 REV N")                                                               : true
+
+    ("rs111 FWD T/T")                                                             : false
+    ("rs111 FWD TT")                                                              : false
+    ("rs111 FWD A")                                                               : false
+    ("rs111 FWD AA")                                                              : false
+
+    ("rs111 FWD D")                                                               : false
+    ("rs111 REV D")                                                               : false
+
+    # rs1212 ATC
+    ("rs1212 FWD ATC")                                                            : true
+    ("rs1212 FWD CTA")                                                            : true
+    ("rs1212 REV TAG")                                                            : true
+    ("rs1212 REV GAT")                                                            : true
+    ("rs1212 FWD I")                                                              : true
+
+    # Warning
+    #
+    ("rs1212 REV I")                                                              : true
+    ("rs1212 FWD N")                                                              : true
+    ("rs1212 REV N")                                                              : true
+
+    ("rs1212 FWD AT/C")                                                           : false
+    ("rs1212 FWD TT")                                                             : false
+    ("rs1212 FWD A")                                                              : false
+    ("rs1212 FWD AA")                                                             : false
+
+    ("rs1212 FWD D")                                                              : false
+    ("rs1212 REV D")                                                              : false
+
+
+    # rs444 D I
+    ("rs444 FWD D/I")                                                             : true
+    ("rs444 REV D/I")                                                             : true
+    ("rs444 FWD I/D")                                                             : true
+    ("rs444 REV I/D")                                                             : true
+    ("rs444 FWD -/N")                                                             : true
+    ("rs444 REV -/N")                                                             : true
+    ("rs444 FWD D/N")                                                             : true
+    ("rs444 REV D/N")                                                             : true
+
+    ("rs444 REV N/N")                                                             : true
+
+    ("rs444 FWD D/D")                                                             : false
+    ("rs444 FWD I/I")                                                             : false
+    ("rs444 FWD -/-")                                                             : false
+    ("rs444 FWD -/AT")                                                            : false
+    ("rs444 FWD D/TTA")                                                           : false
+
+    ("rs444 FWD -")                                                               : false
+    ("rs444 FWD N")                                                               : false
+    ("rs444 FWD D")                                                               : false
+    ("rs444 FWD I")                                                               : false
+    
+    # rs555 I I
+    ("rs555 REV I/I")                                                             : true
+    ("rs555 FWD I/I")                                                             : true
+    ("rs555 FWD N/N")                                                             : true
+    ("rs555 REV N/N")                                                             : true
+
+    ("rs555 FWD A/T")                                                             : false
+    ("rs555 FWD A")                                                               : false
+    ("rs555 FWD N")                                                               : false
+    ("rs555 FWD D/D")                                                             : false
+
+    # rs666 - -
+    ("rs666 FWD -/-")                                                             : true
+    ("rs666 FWD D/D")                                                             : true
+    ("rs666 FWD N/N")                                                             : true
+
+    ("rs666 FWD D/I")                                                             : false
+    ("rs666 FWD I/I")                                                             : false
+    ("rs666 FWD A/A")                                                             : false
+    ("rs666 FWD D/T")                                                             : false
+    ("rs666 FWD D")                                                               : false
+    ("rs666 FWD -")                                                               : false
+
+    # rs777       C     -
+    ("rs777 FWD -/C")                                                             : true
+    ("rs777 FWD D/C")                                                             : true
+    ("rs777 REV -/G")                                                             : true
+    ("rs777 REV D/G")                                                             : true
+
+    ("rs777 FWD C/-")                                                             : true
+    ("rs777 FWD C/D")                                                             : true
+    ("rs777 REV G/-")                                                             : true
+    ("rs777 REV G/D")                                                             : true
+    ("rs777 REV I/D")                                                             : true
+    ("rs777 REV I/-")                                                             : true
+
+
+    # rs888       D     D
+    ("rs888 FWD D/D")                                                             : true
+    ("rs888 REV D/D")                                                             : true
+    ("rs888 FWD -/-")                                                             : true
+    ("rs888 REV -/-")                                                             : true
+
+    ("rs888 FWD -/D")                                                             : true
+    ("rs888 REV -/D")                                                             : true
+    ("rs888 FWD D/-")                                                             : true
+    ("rs888 REV D/-")                                                             : true
+    ("rs888 REV N/N")                                                             : true
+    ("rs888 REV N/D")                                                             : true
+    ("rs888 REV N/-")                                                             : true
+
+    # rs999       I
+    ("rs999 FWD I")                                                               : true
+    ("rs999 REV I")                                                               : true
+    ("rs999 FWD N")                                                               : true
+    ("rs999 REV N")                                                               : true
+
+    ("rs999 FWD AT")                                                              : false
+    ("rs999 FWD -")                                                               : false
+    ("rs999 FWD D")                                                               : false
+    ("rs999 FWD N/N")                                                             : false
+
+    # rs1010      D
+    ("rs1010 FWD D")                                                              : true
+    ("rs1010 REV D")                                                              : true
+    ("rs1010 FWD -")                                                              : true
+    ("rs1010 REV -")                                                              : true
+    ("rs1010 FWD N")                                                              : true
+    ("rs1010 REV N")                                                              : true
+
+    # rs1111      -
+    ("rs1111 FWD -")                                                              : true
+    ("rs1111 REV -")                                                              : true
+    ("rs1111 FWD D")                                                              : true
+    ("rs1111 REV D")                                                              : true
+    ("rs1111 FWD N")                                                              : true
+    ("rs1111 REV N")                                                              : true
+
+    # NULL
+    ("rs000 REV AT/CT")                                                           : null
+    count("rs000 REV", "AT")                                                      : null
+
+    # WTF?
+    count("rs123 FWD", "N")                                                       : 2
+    count("rs111 FWD", "N")                                                       : 1
+
+    blood.value >= 120                                                            : true
+    atLeast(2, blood.value >= 120, "rs123 FWD T/N")                               : true
+
+    somevar.float == 5.05                                                         : true
+    somevar.float  > 5.05                                                         : false
+    somevar.float  < 5.05                                                         : false
+
+    somevar.null                                                                  : null
+
+    if(gender.male,  1, 0)                                                        : 1
+    if(somevar.null, 1, 0)                                                        : null
+    atLeast(somevar.null, blood.value >= 120, "rs123 FWD T/N")                    : null
+
+    age > 30                                                                      : true
+    age > 40                                                                      : false
+
+    if(age>30,  1, 2)                                                             : 1
+    if(age<30,  1, 2)                                                             : 2
+    if(age>=30, true, false)                                                      : true
+
+    or(somevar.null, gender.male)                                                 : true
+    or(gender.male, somevar.null)                                                 : true
+    or(not(gender.male), somevar.null)                                            : null
+    and(somevar.null, gender.male)                                                : null
+    and(gender.male, somevar.null)                                                : null
+
+    # bug
+    ("rs222 REV -/-")                                                             : false
+
+    1 + 2 * 3                                                                     : 7
+    (1 + 1) ^ 3                                                                   : 8

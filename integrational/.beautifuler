@@ -1,0 +1,16 @@
+#!/usr/bin/php
+<?php
+// Beautifuler for YAML on ugly PHP7
+//   ./.beautifuler < recommendations1.test.yml
+
+$how = $argv[1] ?? 70;
+
+while (false !== ($line = fgets(STDIN))) {
+    if (preg_match('/^(.*?\s+):\s+(\S+)/u', $line, $m) ) {
+        $one = rtrim($m[1]);
+        $two = trim($m[2]);
+        echo "$one " . str_repeat(' ', $how - strlen($one)) . ": $two\n";
+    } else {
+        echo rtrim($line) . "\n";
+    }
+}

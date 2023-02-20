@@ -1,0 +1,66 @@
+#
+# Disputed issues
+#
+
+sample : |
+    rs111       T   T
+    rs222       A   A
+    rs333       A   A
+
+    rs17646946  G   G
+    rs7349332   C   C
+    rs1556547   G   G
+
+values :
+    value.null  : null
+    value.1     : 1
+    value.2     : 2
+
+tests  :
+    m1:
+        exp: |
+            sum (
+                count ("rs17646946 FWD" , "A") * -0.29,
+                count ("rs7349332 FWD" , "T") * 0.2,
+                count ("rs1556547 FWD" , "G") * -0.1 )   >= 0.007
+        val                                                                         : false
+
+    # Here we would like NULL. But PHP is duck typed so we see FALSE.
+    9 >= sum(9 >= sum(9 >= sum( sum(value.null) >= 9 )))                            : null
+
+    sum(1,2) > 9                                                                    : false
+    sum(1,2) + 9                                                                    : 12
+    sum(1,8) >= 9                                                                   : true
+    sum(1,1) >= 9                                                                   : false
+    sum(1,2) < 9                                                                    : true
+    sum(1,2) <= 9                                                                   : true
+    sum(1,2) == 3                                                                   : true
+    sum(1,2) - 9                                                                    : -6
+    sum(1,2) * 9                                                                    : 27
+    sum(1,2) / 3                                                                    : 1
+    sum(1,2) ^ 3                                                                    : 27
+
+    sum(value.null) >= 9                                                            : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) > 0                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) >= 0                       : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) < 0                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) <= 0                       : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) == 0                       : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) + 0                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) - 0                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) * 0                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) / 1                        : null
+    sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) ^ 1                        : null
+
+
+    # Unresolved...
+    value.null + 1                                                                  : null
+    sum(1,2) > 3 * 3                                                                : false
+    3 * 3 < sum(1,2)                                                                : false
+
+    true | false                                                                    : true
+    value.null | true                                                               : null
+    true | value.null                                                               : null
+    false | value.null                                                              : null
+    value.null & true                                                               : null
+    true & value.null                                                               : null

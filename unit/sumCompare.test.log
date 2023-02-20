@@ -1,0 +1,140 @@
+GDSL: sum (
+    count ("rs17646946 FWD" , "A") * -0.29,
+    count ("rs7349332 FWD" , "T") * 0.2,
+    count ("rs1556547 FWD" , "G") * -0.1 )   >= 0.007
+
+Expected: false
+Result: false
+
+GDSL: 9 >= sum(9 >= sum(9 >= sum( sum(value.null) >= 9 )))
+Expected: NULL
+Result: NULL
+
+GDSL: sum(1,2) > 9
+Expected: false
+Result: false
+
+GDSL: sum(1,2) + 9
+Expected: 12
+Result: 12
+
+GDSL: sum(1,8) >= 9
+Expected: true
+Result: true
+
+GDSL: sum(1,1) >= 9
+Expected: false
+Result: false
+
+GDSL: sum(1,2) < 9
+Expected: true
+Result: true
+
+GDSL: sum(1,2) <= 9
+Expected: true
+Result: true
+
+GDSL: sum(1,2) == 3
+Expected: true
+Result: true
+
+GDSL: sum(1,2) - 9
+Expected: -6
+Result: -6
+
+GDSL: sum(1,2) * 9
+Expected: 27
+Result: 27
+
+GDSL: sum(1,2) / 3
+Expected: 1
+Result: 1
+
+GDSL: sum(1,2) ^ 3
+Expected: 27
+Result: 27
+
+GDSL: sum(value.null) >= 9
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) > 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) >= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) < 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) <= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) == 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) + 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) - 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) * 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) / 1
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) ^ 1
+Expected: NULL
+Result: NULL
+
+GDSL: value.null + 1
+Expected: NULL
+Result: NULL
+
+GDSL: sum(1,2) > 3 * 3
+Expected: false
+Result: false
+
+GDSL: 3 * 3 < sum(1,2)
+Expected: false
+Result: false
+
+GDSL: true | false
+Expected: true
+Result: true
+
+GDSL: value.null | true
+Expected: NULL
+Result: NULL
+
+GDSL: true | value.null
+Expected: NULL
+Result: NULL
+
+GDSL: false | value.null
+Expected: NULL
+Result: NULL
+
+GDSL: value.null & true
+Expected: NULL
+Result: NULL
+
+GDSL: true & value.null
+Expected: NULL
+Result: NULL
+
+
+
+Errors/Count: 0/33
+

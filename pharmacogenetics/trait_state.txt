@@ -1,0 +1,71 @@
+dimensions.genetic.states[code].predicate
+"rs2395029 FWD T/T"
+"rs2395029 FWD G/N"
+not(exists("rs2395029"))
+"rs9263726 FWD G/G"
+"rs9263726 FWD A/N"
+not(exists("rs9263726"))
+"rs9934438 FWD A/N"
+"rs9934438 FWD A/A"
+not(exists("rs9934438"))
+"rs887829 FWD C/C"
+"rs887829 FWD C/T"
+"rs887829 FWD T/T"
+not(exists("rs887829"))
+not(and(    "rs2844682 FWD A/N",    "rs3909184 FWD C/N"))
+and(    "rs2844682 FWD A/N",    "rs3909184 FWD C/N")
+or(    not(exists("rs2844682")),    not(exists("rs3909184")))
+"rs1061235 FWD A/A"
+"rs1061235 FWD T/N"
+not(exists("rs1061235"))
+"rs6025 FWD C/C"
+"rs6025 FWD C/T"
+"rs6025 FWD T/T"
+not(exists("rs6025"))
+"rs12979860 FWD T/N"
+"rs12979860 FWD C/C"
+not(exists("rs12979860"))
+and(    "rs113993960 FWD CTT/N",    count("rs75527207 FWD", "A") >= 1)
+and(    "rs113993960 FWD CTT/N",    sum(        count("rs397508256 FWD", "A"),        count("rs368505753 FWD", "T"),        count("rs115545701 FWD", "T"),        count("rs397508537 FWD", "A"),        count("rs113993958 FWD", "C"),        count("rs77834169 FWD", "T"),        count("rs78655421 FWD", "A"),        count("rs80282562 FWD", "A"),        count("rs397508759 FWD", "A"),        count("rs397508759 FWD", "T"),        count("rs121908752 FWD", "G"),        count("rs77932196 FWD", "A"),        count("rs121908753 FWD", "A"),        count("rs74551128 FWD", "A"),        count("rs121908755 FWD", "A"),        count("rs121908757 FWD", "C"),        count("rs121909005 FWD", "A"),        count("rs121909005 FWD", "G"),        count("rs397508256 FWD", "A"),        count("rs121909013 FWD", "A"),        count("rs397508288 FWD", "G"),        count("rs397508442 FWD", "T"),        count("rs141033578 FWD", "T"),        count("rs150212784 FWD", "G"),        count("rs397508513 FWD", "C"),        count("rs121909020 FWD", "A"),        count("rs200321110 FWD", "A"),        count("rs78769542 FWD", "A"),        count("rs202179988 FWD", "T"),        count("rs186045772 FWD", "A"),        count("rs75541969 FWD", "C"),        count("rs267606723 FWD", "A"),        count("rs74503330 FWD", "A"),        count("rs121909041 FWD", "C"),        count("rs11971167 FWD", "A"),        count("rs193922525 FWD", "A")    ) >= 1)
+or(    "rs113993960 FWD -/-",    sum(        count("rs397508256 FWD", "A"),        count("rs368505753 FWD", "T"),        count("rs115545701 FWD", "T"),        count("rs397508537 FWD", "A"),        count("rs113993958 FWD", "C"),        count("rs77834169 FWD", "T"),        count("rs78655421 FWD", "A"),        count("rs80282562 FWD", "A"),        count("rs397508759 FWD", "A"),        count("rs397508759 FWD", "T"),        count("rs121908752 FWD", "G"),        count("rs77932196 FWD", "A"),        count("rs121908753 FWD", "A"),        count("rs74551128 FWD", "A"),        count("rs121908755 FWD", "A"),        count("rs121908757 FWD", "C"),        count("rs121909005 FWD", "A"),        count("rs121909005 FWD", "G"),        count("rs397508256 FWD", "A"),        count("rs75527207 FWD", "A"),        count("rs121909013 FWD", "A"),        count("rs397508288 FWD", "G"),        count("rs397508442 FWD", "T"),        count("rs141033578 FWD", "T"),        count("rs150212784 FWD", "G"),        count("rs397508513 FWD", "C"),        count("rs121909020 FWD", "A"),        count("rs200321110 FWD", "A"),        count("rs78769542 FWD", "A"),        count("rs202179988 FWD", "T"),        count("rs186045772 FWD", "A"),        count("rs75541969 FWD", "C"),        count("rs267606723 FWD", "A"),        count("rs74503330 FWD", "A"),        count("rs121909041 FWD", "C"),        count("rs11971167 FWD", "A"),        count("rs193922525 FWD", "A")    ) == 0)
+not(or(  exists("rs397508256"),  exists("rs368505753"),  exists("rs115545701"),  exists("rs397508537"),  exists("rs113993958"),  exists("rs77834169"),  exists("rs78655421"),  exists("rs80282562"),  exists("rs397508759"),  exists("rs397508759"),  exists("rs121908752"),  exists("rs77932196"),  exists("rs121908753"),  exists("rs74551128"),  exists("rs121908755"),  exists("rs121908757"),  exists("rs121909005"),  exists("rs121909005"),  exists("rs397508256"),  exists("rs75527207"),  exists("rs121909013"),  exists("rs397508288"),  exists("rs397508442"),  exists("rs141033578"),  exists("rs150212784"),  exists("rs397508513"),  exists("rs121909020"),  exists("rs200321110"),  exists("rs78769542"),  exists("rs202179988"),  exists("rs186045772"),  exists("rs75541969"),  exists("rs267606723"),  exists("rs74503330"),  exists("rs121909041"),  exists("rs11971167"),  exists("rs193922525")))
+"rs9923231 REV G/G"
+"rs9923231 REV G/A"
+"rs9923231 REV A/A"
+not(exists("rs9923231"))
+"rs2108622 FWD C/C"
+"rs2108622 FWD C/T"
+"rs2108622 FWD T/T"
+not(exists("rs2108622"))
+"rs12777823 FWD G/G"
+"rs12777823 FWD G/A"
+"rs12777823 FWD A/A"
+not(exists("rs12777823"))
+"rs1799853 FWD C/C"
+"rs1799853 FWD C/T"
+"rs1799853 FWD T/T"
+not(exists("rs1799853"))
+"rs1057910 FWD A/A"
+"rs1057910 FWD A/C"
+"rs1057910 FWD C/C"
+not(exists("rs1057910"))
+"rs28371686 FWD C/C"
+"rs28371686 FWD C/G"
+"rs28371686 FWD G/G"
+not(exists("rs28371686"))
+"rs9332131 FWD A/A"
+"rs9332131 FWD A/-"
+"rs9332131 FWD -/-"
+not(exists("rs9332131"))
+"rs7900194 FWD G/G"
+"rs7900194 FWD G/A"
+"rs7900194 FWD A/A"
+not(exists("rs7900194"))
+"rs28371685 FWD C/C"
+"rs28371685 FWD C/T"
+"rs28371685 FWD T/T"
+not(exists("rs28371685"))
+"rs11676382 FWD C/C"
+"rs11676382 FWD C/G"
+"rs11676382 FWD G/G"
+not(exists("rs11676382"))

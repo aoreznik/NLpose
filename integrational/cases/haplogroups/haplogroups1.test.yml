@@ -1,0 +1,11 @@
+#
+# ancestry1 -> haplo
+#
+
+values:
+  gender.male   : false
+  gender.female : true
+
+tests:
+  haplo/Y       : -
+  haplo/MT      : K1a1b1d

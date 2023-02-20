@@ -1,0 +1,56 @@
+dimensions.genetic.states[code].schema
+sum(    count("CYP2C9", "normal_function"))) == 2
+or(    and(        sum(            count("CYP2C9", "normal_function")        ) == 1,        sum(            count("CYP2C9", "no_function")        ) == 1    ),    and(        sum(            count("CYP2C9", "normal_function")        ) == 1,        sum(            count("CYP2C9", "decreased_function")        ) == 1    ))
+and(    sum(        count("CYP2C9", "normal_function")    ) == 1,    sum(        count("CYP2C9", "possibly_decreased_function")    ) == 1)
+or(    sum(        count("CYP2C9", "no_function")    ) == 2,    sum(        count("CYP2C9", "decreased_function")    ) == 2,    and(        sum(            count("CYP2C9", "no_function")        ) == 1,        sum(            count("CYP2C9", "decreased_function")        ) == 1    ))
+or(    sum(        count("CYP2C9", "possibly_decreased_function")    ) == 2,    and(        sum(            count("CYP2C9", "no_function")        ) == 1,        sum(            count("CYP2C9", "possibly_decreased_function")        ) == 1    ),    and(        sum(            count("CYP2C9", "decreased_function")        ) == 1,        sum(            count("CYP2C9", "possibly_decreased_function")        ) == 1    ))
+sum(    count("CYP2C9", "unknown_function")) >= 1
+not(    or(        CYP2C9_metabolizer.NM,        CYP2C9_metabolizer.IM,        CYP2C9_metabolizer.pIM,        CYP2C9_metabolizer.PM,        CYP2C9_metabolizer.pPM,        CYP2C9_metabolizer.unknown    ))
+sum(    count("CYP2C19", "normal_function")) == 2
+or(    and(        sum(            count("CYP2C19", "normal_function")        ) == 1,        sum(            count("CYP2C19", "no_function")        ) == 1    ),    and(        sum(            count("CYP2C19", "increased_function")        ) == 1,        sum(            count("CYP2C19", "no_function")        ) == 1    ))
+or(    and(        sum(            count("CYP2C19", "decreased_function")        ) == 1,        sum(            count("CYP2C19", "normal_function")        ) == 1    ),    sum(        count("CYP2C19", "decreased_function")    ) == 2,    and(        sum(            count("CYP2C19", "decreased_function")        ) == 1,        sum(            count("CYP2C19", "increased_function")        ) == 1    ))
+sum(    count("CYP2C19", "no_function")) == 2
+and(    sum(        count("CYP2C19", "decreased_function")    ) == 1,    sum(        count("CYP2C19", "no_function")    ) == 1)
+and(    sum(        count("CYP2C19", "increased_function")    ) == 1,    sum(        count("CYP2C19", "normal_function")    ) == 1)
+sum(    count("CYP2C19", "increased_function")) == 2
+sum(    count("CYP2C19", "unknown_function")) >= 1
+not(    or(        CYP2C19_metabolizer.NM,        CYP2C19_metabolizer.IM,        CYP2C19_metabolizer.pIM,        CYP2C19_metabolizer.PM,        CYP2C19_metabolizer.pPM,        CYP2C19_metabolizer.RM,        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.unknown    ))
+sum(    count("CYP3A5", "normal_function")) == 2
+and(    sum(        count("CYP3A5", "normal_function")    ) == 1,    sum(        count("CYP3A5", "no_function")    ) == 1)
+and(    sum(        count("CYP3A5", "unknown_function")    ) == 1,    sum(        count("CYP3A5", "normal_function")    ) == 1)
+sum(    count("CYP3A5", "no_function")) == 2
+and(    sum(        count("CYP3A5", "unknown_function")    ) >= 1,    sum(        count("CYP3A5", "normal_function")    ) == 0)
+not(    or(        CYP3A5_metabolizer.NM,        CYP3A5_metabolizer.IM,        CYP3A5_metabolizer.pIM,        CYP3A5_metabolizer.PM,        CYP3A5_metabolizer.unknown    ))
+sum(    count("TPMT", "normal_function")) == 2
+and(    sum(        count("TPMT", "normal_function")    ) == 1,    sum(        count("TPMT", "no_function")    ) == 1)
+sum(    count("TPMT", "no_function")) == 2
+sum(    count("TPMT", "unknown_function")) >= 1
+not(    or(        TPMT_metabolizer.NM,        TPMT_metabolizer.IM,        TPMT_metabolizer.PM,        TPMT_metabolizer.unknown    ))
+or(    and(        sum(            count("UGT1A1", "normal_function")        ) == 1,        sum(            count("UGT1A1", "increased_function")        ) == 1    ),    sum(        count("UGT1A1", "normal_function")    ) == 2,    sum(        count("UGT1A1", "increased_function")    ) == 2)
+and(    sum(        count("UGT1A1", "normal_function"),        count("UGT1A1", "increased_function")    ) == 1,    sum(        count("UGT1A1", "decreased_function"),        count("UGT1A1", "unknown_function")    )==1)
+sum(    count("UGT1A1", "decreased_function"),    count("UGT1A1", "unknown_function")) == 2    
+not(    or(        UGT1A1_metabolizer.NM,        UGT1A1_metabolizer.IM,        UGT1A1_metabolizer.PM    ))
+sum(    count("SLCO1B1", "normal_function")) == 2    
+and(    sum(        count("SLCO1B1", "normal_function")    ) == 1,    sum(        count("SLCO1B1", "decreased_function")    ) == 1)    
+and(    sum(        count("SLCO1B1", "normal_function")    ) == 1,    sum(        count("SLCO1B1", "possibly_decreased_function")    ) == 1)    
+sum(    count("SLCO1B1", "decreased_function")) == 2    
+or(    sum(        count("SLCO1B1", "possibly_decreased_function")    ) == 2,    and(        sum(            count("SLCO1B1", "possibly_decreased_function")        ) == 1,        sum(            count("SLCO1B1", "decreased_function")        ) == 1    ))    
+or(    sum(        count("SLCO1B1", "possibly_increased_function")    ) == 2,    and(        sum(            count("SLCO1B1", "possibly_increased_function")        ) == 1,        sum(            count("SLCO1B1", "normal_function")        ) == 1    ))    
+or(    sum(        count("SLCO1B1", "unknown_function")    ) >= 1,    and(        sum(            count("SLCO1B1", "possibly_increased_function")        ) == 1,        sum(            count("SLCO1B1", "possibly_decreased_function"),            count("SLCO1B1", "decreased_function")        ) == 1,    ))
+not(    or(        SLCO1B1_metabolizer.NM,        SLCO1B1_metabolizer.IM,        SLCO1B1_metabolizer.pIM,        SLCO1B1_metabolizer.PM,        SLCO1B1_metabolizer.pPM,        SLCO1B1_metabolizer.pRM,    ))
+or(    sum(        count("CYP2D6", "normal_function")    ) == 2,    and(        sum(            count("CYP2D6", "normal_function")        ) == 1,        sum(            count("CYP2D6", "decreased_function")        ) == 1    ))
+or(    sum(        count("CYP2D6", "decreased_function")    ) == 2,    and(        count("CYP2D6", "normal_function") == 1,        count("CYP2D6", "no_function") == 1,    ))  
+and(    sum(        count("CYP2D6", "no_function")    ) == 1,    sum(        count("CYP2D6", "decreased_function")    ) == 1)
+sum(    count("CYP2D6", "no_function")) == 2    
+sum(    count("CYP2D6", "unknown_function")) >= 1
+not(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne,        CYP2D6_metabolizer.activityHalf,        CYP2D6_metabolizer.activityZero,        CYP2D6_metabolizer.unknown    ))
+or(    and(        gender.male,        sum(            count("G6PD", "normal_function")        ) == 1    ),    and(        gender.female,        sum(            count("G6PD", "normal_function")        ) == 2    ))
+or(    and(        gender.male,        sum(            count("G6PD", "decreased_function"),            count("G6PD", "no_function")        ) == 1    ),    and(        gender.female,        sum(           count("G6PD", "decreased_function"),           count("G6PD", "no_function")        ) == 2    ))
+or(    sum(        count("G6PD", "unknown_function")    ) >= 1,    and(        gender.female,        sum(            count("G6PD", "normal_function")        ) == 1,        sum(            count("G6PD", "decreased_function"),            count("G6PD", "no_function")        ) == 1    ))
+not(    or(        G6PD_metabolizer.NM,        G6PD_metabolizer.PM,        G6PD_metabolizer.unknown    ))
+The implemented logic is based on the CPIC recommendations PMID 29152729. Haplotype tables-based logic was deprecated.
+The implemented logic is based on the CPIC recommendations PMID 29152729. Haplotype tables-based logic was deprecated.
+The implemented logic is based on the CPIC recommendations PMID 29152729. Haplotype tables-based logic was deprecated.
+The implemented logic is based on the CPIC recommendations PMID 29152729. Haplotype tables-based logic was deprecated.
+The implemented logic is based on the CPIC recommendations PMID 29152729. Haplotype tables-based logic was deprecated.
+and(    not(exists("rs3918290")),    not(exists("rs55886062")),    not(exists("rs67376798")),    not(exists("rs75017182")),    not(exists("rs72549303")),    not(exists("rs72549309")),    not(exists("rs1801266")),    not(exists("rs1801268")),    not(exists("rs78060119")),    not(exists("rs115232898")))

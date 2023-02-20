@@ -1,0 +1,384 @@
+# PGx test 1
+diplotypes:
+  CYP2C19: ['*25', '*18'] # normal_function & decreased_function => IM
+  CYP2C9 : ['*3', '*15']  # no_function & decreased_function => PM
+  CYP2D6 : ['*2G', '*12'] # normal_function & no_function => EM
+  CYP3A5 : ['*3', '*6']   # no_function & no_function => PM
+  DPYD   : ['*1', '*13']  # normal_function & no_function => IM
+#  G6PD   : ['Vanua_Lava'] # decreased_function (hemizygous male) => IM
+  # HLA-A  : ['*31:01:02', '*22:01:91'] # one risk allele # not inplemented yet
+  # HLA-B  : ['*20:20:20', '*15:02:10'] # no risk alleles # not inplemented yet
+  TPMT   : ['*28', '*12'] # unknown_function & unknown_function => NM
+  # UGT1A1 : ['*6', '*60']  # decreased_function & normal_function => IM # not inplemented yet
+
+# each SNP is on FWD strand
+sample: |
+  rs10306114    G    G
+  rs1057910     A    C
+  rs11212617    C    A
+  rs12943590    A    G
+  rs12979860    C    C
+  rs145489027   A    G
+  rs17244841    T    T
+  rs17782313    T    T
+  rs1799752     I    I
+  rs1800497     A    A
+  rs185386680   A    A
+  rs2395029     T    T
+  rs267606617   A    G
+  rs28365063    G    G
+  rs3745274     T    T
+  rs3892097     C    T
+  rs4149056     T    C
+  rs5443        C    C
+  rs6025        G    A
+  rs730012      A    C
+  rs7412        T    T
+  rs75527207    A    A
+  rs9263726     A    G
+  rs9923231     T    C
+  rs9934438     G    G
+
+values:
+#  gender.male: true # just to be consistent with G6PD diplotype
+
+tests:
+  # cytochrome.state
+  CYP2C19_activity.UM: false
+  CYP2C19_activity.EM: false
+  CYP2C19_activity.IM: true # ['*25', '*18'] # normal_function & decreased_function
+  CYP2C19_activity.PM: false
+  CYP2C19_activity.NM: false
+  CYP2C9_activity.EM : false
+  CYP2C9_activity.IM : false
+  CYP2C9_activity.PM : true # ['*3', '*15']  # no_function & decreased_function
+  CYP2C9_activity.NM : false
+  CYP2D6_activity.UM : false
+  CYP2D6_activity.EM : true # ['*2G', '*12'] # normal_function & no_function
+  CYP2D6_activity.IM : false
+  CYP2D6_activity.PM : false
+  CYP2D6_activity.NM : false
+  CYP3A5_activity.EM : false
+  CYP3A5_activity.IM : false
+  CYP3A5_activity.PM : true # ['*3', '*6']   # no_function & no_function
+  CYP3A5_activity.NM : false
+  DPYD_activity.EM   : false
+  DPYD_activity.IM   : true # ['*1', '*13']  # normal_function & no_function
+  DPYD_activity.PM   : false
+#  G6PD_activity.EM   : false
+#  G6PD_activity.IM   : true # ['Vanua_Lava'] # decreased_function (hemizygous male)
+#  G6PD_activity.PM   : false
+#  G6PD_activity.NM   : false
+  TPMT_activity.EM   : false
+  TPMT_activity.IM   : false
+  TPMT_activity.PM   : false
+  TPMT_activity.NM   : true # ['*28', '*12'] # unknown_function & unknown_function
+  # UGT1A1_activity.EM : false # not inplemented yet
+  # UGT1A1_activity.IM : true # ['*6', '*60']  # decreased_function & normal_function # not inplemented yet
+  # UGT1A1_activity.PM : false # not inplemented yet
+  # UGT1A1_activity.NM : false # not inplemented yet
+
+  # drug.state
+  abacavir.sideEffects_avoid                                                           : false
+  abacavir.noSideEffects_standardDosage                                                : true # "rs2395029 FWD T/T"
+  aceInhibitors.sideEffects_avoid                                                      : true # "rs145489027 FWD A/G"
+  aceInhibitors.noSideEffects_standardDosage                                           : false
+  allopurinol.sideEffects_avoid                                                        : true # rs9263726 FWD A/G
+  allopurinol.noSideEffects_standardDosage                                             : false
+  aminoglycosides.sideEffects_avoid                                                    : true # rs267606617 FWD A/G
+  aminoglycosides.noSideEffects_standardDosage                                         : false
+  aspirin.effective_sideEffects_avoid                                                  : false
+  aspirin.nonEffective_sideEffects_avoid                                               : true # and("rs10306114 FWD G/G", "rs730012 FWD A/C")
+  aspirin.effective_noSideEffects                                                      : false
+  aspirin.nonEffective_noSideEffects                                                   : false 
+  atorvastatin.lowEfficacy                                                             : false
+  atorvastatin.effective                                                               : true # "rs7412 FWD T/T"
+  atypicalAntipsychotics.sideEffects_beAlert                                           : false
+  atypicalAntipsychotics.noSideEffects                                                 : true # "rs17782313 FWD T/T"
+  bupropion.effective                                                                  : false
+  bupropion.nonEffective                                                               : true # rs1800497 FWD A/A
+  captopril.nonEffective                                                               : false
+  captopril.effective                                                                  : true #   rs1799752 FWD I/I
+  # carbamazepine.sideEffects_avoidDueToHLAB1502                                         : false
+  # carbamazepine.sideEffects_avoidDueToCombineHLAAlleles                                : false
+  # carbamazepine.sideEffects_avoidDueToHLAA3101                                         : true # "HLA-A *31:01:02/*22:01:91" # not implemented yet
+  # carbamazepine.noSideEffects_standardDosage                                           : false
+  diclofenac.noRiskBleeding                                                            : false
+  diclofenac.highRiskBleeding                                                          : true # rs1057910 FWD A/C
+  efavirenz.nonEffective_doseIncrease                                                  : false
+  efavirenz.possibleSideEffects_doseReduction                                          : false
+  efavirenz.sideEffects_doseReduction                                                  : true # "rs3745274 FWD T/T"
+  hormonalContraceptivesForSystemicUse.noSideEffects                                   : false
+  hormonalContraceptivesForSystemicUse.riskThrombosis                                  : true # "rs6025 FWD G/A"
+  hormonalContraceptivesForSystemicUse.highRiskThrombosis                              : false
+  ivacaftor.unknownEffect_avoid                                                        : false
+  ivacaftor.favorableResponse_standartDosage                                           : true # "rs75527207 FWD A/A"
+  lamotrigine.lowerClearance                                                           : false
+  lamotrigine.higherClearance                                                          : true # "rs28365063 FWD G/G"
+  metformin.lowEfficacyHighMetabolism                                                  : false
+  metformin.highEfficacyHighMetabolism                                                 : false
+  metformin.lowEfficacyNormalMetabolism                                                : false
+  metformin.highEfficacyNormalMetabolism                                               : true # and ("rs12943590 FWD A/G", "rs11212617 FWD C/A")
+  pegylatedInterferonsAlfa.unfavorableResponse_weightRisks                             : false
+  pegylatedInterferonsAlfa.favorableResponse_weightRisks                               : true # "rs12979860 FWD C/C"
+  pravastatin.nonEffective                                                             : false
+  pravastatin.unknownEffect                                                            : true #   rs17244841 FWD T/T
+  pravastatin.effective                                                                : false
+  ribavirin.unfavorableResponse_weightRisks                                            : false
+  ribavirin.favorableResponse_weightRisks                                              : true # "rs12979860 FWD C/C"
+  sildenafil.lowEfficacy                                                               : true # rs5443 FWD C/C
+  sildenafil.effective                                                                 : false
+  simvastatin.sideEffects_avoidOrReduce                                                : true # rs4149056 FWD T/C, nevertheless "rs17244841 FWD T/T"
+  simvastatin.noSideEffects_standardDosage                                             : false
+  simvastatin.noSideEffects_variableDosage                                             : false
+  simvastatin.noSideEffects_unknownEffect                                              : false
+  tamoxifen.non_effective                                                              : false
+  tamoxifen.effective                                                                  : true # rs3892097 FWD C/T
+  thioamides.sideEffects_avoid                                                         : false
+  thioamides.noSideEffects_standardDosage                                              : true # "rs185386680 FWD A/A"
+  # atazanavir.sideEffects_avoid                                                         : false
+  # atazanavir.unlikelySideEffects_standardDosage                                        : true # UGT1A1_activity.IM # not inplemented yet
+  # atazanavir.unknownEffect_avoid                                                       : false
+  # atazanavir.noSideEffects_standardDosage                                              : false
+  atomoxetine.nonEffective                                                             : false
+  atomoxetine.unknownEffect_avoid                                                      : false
+  atomoxetine.sideEffects_beAlert                                                      : false
+  atomoxetine.effective                                                                : true # CYP2D6_activity.EM
+  clopidogrel.sideEffects_avoid                                                        : true # CYP2C19_activity.IM
+  clopidogrel.unknownEffect_avoid                                                      : false
+  clopidogrel.unlikelySideEffects_standardDosage                                       : false
+  codeine.sideEffects_avoid                                                            : false
+  codeine.nonEffective_avoid                                                           : false
+  codeine.nonEffective_avoidOrSwitch                                                   : false
+  codeine.unknownEffect_avoid                                                          : false
+  codeine.noSideEffects_standardDosage                                                 : true # CYP2D6_activity.EM
+  fluoropyrimidines.sideEffects_avoid                                                  : false
+  fluoropyrimidines.sideEffects_50percentReduce                                        : true # DPYD_activity.IM
+  fluoropyrimidines.noSideEffects_standardDosage                                       : false
+  lansoprazole.unknownEffect_avoid                                                     : false
+  lansoprazole.lowEfficacy_increaseDose                                                : false
+  lansoprazole.noSideEffects_standardDosage                                            : true # CYP2C19_activity.IM
+  metoprolol.sideEffects_75percentDoseReduction                                        : false
+  metoprolol.sideEffects_50percentDoseReduction                                        : false
+  metoprolol.unknownEffect_avoid                                                       : false
+  metoprolol.possibleNoEffect_increaseDose                                             : false
+  metoprolol.effective                                                                 : true # CYP2D6_activity.EM
+  omeprazole.unknownEffect_avoid                                                       : false
+  omeprazole.lowEfficacy_increaseDose                                                  : false
+  omeprazole.noSideEffects_standardDosage                                              : true # CYP2C19_activity.IM
+  ondansetron.nonEffective_avoid                                                       : false
+  ondansetron.unknownEffect_avoid                                                      : false
+  ondansetron.insufficientData_askDoctor                                               : false
+  ondansetron.noSideEffects_standardDosage                                             : true # CYP2D6_activity.EM
+  propafenone.sideEffects_doseReduction                                                : false
+  propafenone.nonEffective_titrateOrSwitch                                             : false
+  propafenone.effective                                                                : true # CYP2D6_activity.EM
+#  rasburicase.sideEffects_avoid                                                        : false
+#  rasburicase.variable_measureG6PDActivity                                             : true # G6PD_activity.IM
+#  rasburicase.unknownEffect_avoid                                                      : false
+#  rasburicase.noSideEffects_standardDosage                                             : false
+  risperidone.sideEffects_beAlert                                                      : false
+  risperidone.unknownEffect_avoid                                                      : false
+  risperidone.noSideEffects                                                            : true # CYP2D6_activity.EM
+  selectiveSerotoninReuptakeInhibitors.nonEffectiveAndSideEffects_avoidAndReduceCYP2D6 : false
+  selectiveSerotoninReuptakeInhibitors.nonEffectiveAndSideEffects_avoidAndReduceCYP2C19: false
+  selectiveSerotoninReuptakeInhibitors.nonEffective_avoid                              : false
+  selectiveSerotoninReuptakeInhibitors.nonEffective_avoidSomeCYP2C19                   : false
+  selectiveSerotoninReuptakeInhibitors.nonEffective_avoidSomeCYP2D6                    : false
+  selectiveSerotoninReuptakeInhibitors.sideEffects_50percentDoseReduction              : false
+  selectiveSerotoninReuptakeInhibitors.unknownEffect_avoid                             : false
+  selectiveSerotoninReuptakeInhibitors.sideEffects_50percentDoseReductionCYP2D6        : false
+  selectiveSerotoninReuptakeInhibitors.sideEffects_50percentDoseReductionCYP2C19       : false
+  selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage                    : true # and(CYP2D6_activity.EM, CYP2C19_activity.IM)
+  tacrolimus.unknownEffect_avoid                                                       : false
+  tacrolimus.nonEffective_increaseStartingDose                                         : false
+  tacrolimus.noSideEffects_standardDosage                                              : true # CYP3A5_activity.PM
+  thiopurines.noSideEffects_standardDosage                                             : false
+  thiopurines.sideEffects_reduce                                                       : false
+  thiopurines.unknownEffect_avoid                                                      : true # TPMT_activity.NM
+  thiopurines.sideEffects_avoidOrGreatlyReduce                                         : false
+  tramadol.sideEffects_reduceOrSwitch                                                  : false
+  tramadol.nonEffective_avoid                                                          : false
+  tramadol.nonEffective_increaseOrSwitch                                               : false
+  tramadol.unknownEffect_avoid                                                         : false
+  tramadol.noSideEffects_standardDosage                                                : true # CYP2D6_activity.EM
+  tricyclicAntidepressants.sideEffects_avoid                                           : false
+  tricyclicAntidepressants.avoid                                                       : false
+  tricyclicAntidepressants.sideEffects_25percentDoseReduction                          : false
+  tricyclicAntidepressants.nonEffective_avoid                                          : false
+  tricyclicAntidepressants.unknownEffect_avoid                                         : false
+  tricyclicAntidepressants.sideEffects_50percentDoseReduction                          : false
+  tricyclicAntidepressants.noSideEffects_standardDosage                                : true # and(CYP2D6_activity.EM, CYP2C19_activity.IM)
+  tropisetron.nonEffective_avoid                                                       : false
+  tropisetron.unknownEffect_avoid                                                      : false
+  tropisetron.insufficientData_askDoctor                                               : false
+  tropisetron.noSideEffects_standardDosage                                             : true # CYP2D6_activity.EM
+  venlafaxine.nonEffective_avoid                                                       : false
+  venlafaxine.unknownEffect_avoid                                                      : false
+  venlafaxine.nonEffective_titrate                                                     : false
+  venlafaxine.effective                                                                : true # CYP2D6_activity.EM
+  voriconazole.sideEffects_avoid                                                       : false
+  voriconazole.nonEffective_avoid                                                      : false
+  voriconazole.unknownEffect_avoid                                                     : false
+  voriconazole.noSideEffects_standardDosage                                            : true # CYP2C19_activity.IM
+  # phenytoin.sideEffects_Avoid                                                          : false
+  # phenytoin.sideEffects_25percentReduce                                                : false
+  # phenytoin.sideEffects_50percentReduce                                                : true # and(not("HLA-B *15:02:01/N"), CYP2C9_activity.PM) # not implemented yet
+  # phenytoin.noSideEffects_standardDosage                                               : false
+  # phenytoin.unknownEffect_avoid                                                        : false
+  warfarin.unknownPGxContribution                                                      : false
+  warfarin.knownPGxContribution                                                        : true # and(CYP2C9_activity.PM, "rs9923231 FWD T/C")
+
+  # recommendation, reason
+  rAbacavirStandardDosage.NonCarrierHLAB5707                                                                                  : true # abacavir.noSideEffects_standardDosage
+  rAllopurinolStandardDosage.NonCarrierHLAB5801                                                                               : false
+  rAminoglycosidesAvoidDueToSideEffects.UnfavorableMTRNR1Variant                                                              : true # aminoglycosides.sideEffects_Avoid
+  rAminoglycosidesStandardDosage.FavorableMTRNR1Variant                                                                       : false
+  rAskDoctorOndansetronDueToInsufficientData.NoDataOndansetron                                                                : false
+  rAskDoctorTropisetronDueToInsufficientData.NoDataTropisetron                                                                : false
+  # rAtazanavirStandardDosage.ReferenceUGT1A1Activity                                                                           : false # not implemented yet
+  # rAtazanavirStandardDosage.SomewhatDecreasedUGT1A1Activity                                                                   : true # atazanavir.unlikelySideEffects_standardDosage # not implemented yet
+  rAtomoxetineBeAlertDueToSideEffects.DecreasedMetabolismAtomoxetine                                                          : false
+  rAtypicalAntipsychoticsBeAlertDueToSideEffects.UnfavorableVariantLMC4R                                                      : false
+  rAvoidAbacavirDueToSideEffects.CarrierHLAB5707                                                                              : false
+  rAvoidACEInhibitors.UnfavorableVariantKCNIP4                                                                                : true # aceInhibitors.sideEffects_avoid
+  rAvoidAllopurinolDueToSideEffects.CarrierHLAB5801                                                                           : true # rAvoidAllopurinolDueToSideEffects carrierHLAB5801
+  rAvoidAndReduceSelectiveSerotoninReuptakeInhibitorsCYP2C19.HighAndLowMetabolismSomeSelectiveSerotoninReuptakeInhibitors     : false
+  rAvoidAndReduceSelectiveSerotoninReuptakeInhibitorsCYP2D6.HighAndLowMetabolismSomeSelectiveSerotoninReuptakeInhibitors      : false
+  rAvoidAspirinDueToNoEffect.UnfavorableVariantPTGS1                                                                          : true # aspirin.nonEffective_sideEffects_avoid
+  rAvoidAspirinDueToSideEffect.UnfavorableVariantLTC4S                                                                        : true # aspirin.nonEffective_sideEffects_avoid
+  # rAvoidAtazanavirDueToSideEffects.MarkedlyDecreasedUGT1A1Activity                                                            : false # not implemented yet
+  rAvoidAtomoxetine.IncreasedMetabolismAtomoxetine                                                                            : false
+  # rAvoidCarbamazepineDueToSideEffects.CarrierHLAB1502OrHLAA3101                                                               : true # carbamazepine.sideEffects_avoidDueToHLAA3101 # # depends on HLA-A, not implemented yet
+  rAvoidClopidogrelDueToSideEffects.LowMetabolismClopidogrel                                                                  : true # clopidogrel.sideEffects_avoid
+  rAvoidCodeineDueToNoEffects.VeryLowMetabolismCodein                                                                          : false
+  rAvoidCodeineDueToSideEffects.VeryHighMetabolismCodein                                                                       : false
+  rAvoidDiclofenac.highRiskBleeding                                                                                           : true # diclofenac.highRiskBleeding
+  rAvoidInducersOfCyp2C19.UseSelectiveSerotoninReuptakeInhibitors                                                             : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rAvoidInducersOfCyp2C19.UseTricyclicAntidepressants                                                                         : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rAvoidInhibitorsOfCyp2C19.UseSelectiveSerotoninReuptakeInhibitors                                                           : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rAvoidInhibitorsOfCyp2C19.UseTricyclicAntidepressants                                                                       : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rAvoidInhibitorsOfCyp2D6.UseSelectiveSerotoninReuptakeInhibitors                                                            : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rAvoidInhibitorsOfCyp2D6.UseTricyclicAntidepressants                                                                        : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rAvoidOndansetronDueToNoEffects.HighMetabolismOndansetron                                                                   : false
+  rAvoidOrIncreaseMetoprolol.HighMetoprololMetabolism                                                                         : false
+  rAvoidOrReduceMetoprolol.LowMetoprololMetabolism                                                                            : false
+  rAvoidOrReduceSimvastatinDueToSideEffects.HighRiskOfSimvastatinAssociatedMyopathy                                           : true # simvastatin.sideEffects_avoidOrReduce
+  rAvoidOrSwitchCodeineDueToNoEffects.LowMetabolismCodein                                                                      : false
+  rAvoidPravastatinDueToNonEffective.UnfavorableVariantHMGCPravastatin                                                        : false
+  rAvoidSelectiveSerotoninReuptakeInhibitorsDueToNoEffect.VeryHighMetabolismSelectiveSerotoninReuptakeInhibitors              : false
+  rAvoidSomeSelectiveSerotoninReuptakeInhibitorsCYP2D6.VeryHighMetabolismSomeSelectiveSerotoninReuptakeInhibitors             : false
+  rAvoidSomeSelectiveSerotoninReuptakeInhibitorsCYP2C19.VeryHighMetabolismSomeSelectiveSerotoninReuptakeInhibitors            : false
+  rAvoidSubstratesOfCyp2C19.UseSelectiveSerotoninReuptakeInhibitors                                                           : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rAvoidSubstratesOfCyp2C19.UseTricyclicAntidepressants                                                                       : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rAvoidSubstratesOfCyp2D6.UseSelectiveSerotoninReuptakeInhibitors                                                            : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rAvoidSubstratesOfCyp2D6.UseTricyclicAntidepressants                                                                        : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rAvoidTamoxifen.HighRiskOfInefficiency                                                                                      : false
+  rAvoidThioamides.UnfavorableVariantHLA_B                                                                                    : false
+  rAvoidTricyclicAntidepressantsDueToNoEffect.VeryHighMetabolismTricyclicAntidepressants                                      : false
+  rAvoidTricyclicAntidepressantsDueToSideEffects.VeryLowMetabolismTricyclicAntidepressants                                    : false
+  rAvoidTropisetronDueToNoEffects.HighMetabolismTropisetron                                                                   : false
+  rAvoidVenlafaxine.LowVenlafaxineMetabolism                                                                                  : false
+  rAvoidVoriconazoleDueToNoEffects.HighMetabolismVoriconazole                                                                 : false
+  rAvoidVoriconazoleDueToSideEffects.LowMetabolismVoriconazole                                                                : false
+  rCaptoprilBeAwareDueToDecreasedResponse.UnfavorableVariantACE                                                               : true # captopril.effective
+  # rCarbamazepineStandardDose.NonCarrierHLAB1502OrHLAA3101                                                                     : false # not implemented yet
+  rClopidogrelStandardDosageDueToUnlikelySideEffects.NormalOrHighMetabolismClopidogrel                                        : false
+  rCodeineStandardDosage.NormalMetabolismCodein                                                                                : true # codeine.noSideEffects_standardDosage
+  # rDoNotUsePhenytoin.HLAB1501Positive                                                                                         : false # not implemented yet
+  rDontUseBupropionForSmokingCessation.DRD2UnFavourable                                                                       : true # bupropion.NonEffective
+  rDontUseEstrogenContainingPills.LeidenMutationPresent                                                                       : true # hormonalContraceptivesForSystemicUse.riskThrombosis
+  rEfavirenzDoseIncreaseDueToNonEffective.HighEfavirenzMetabolism                                                             : false
+  rEfavirenzDoseReductionDueToPossibleSideEffects.DecreasedEfavirenzMetabolism                                                : false
+  rEfavirenzDoseReductionDueToSideEffects.VeryLowEfavirenzMetabolism                                                          : true # efavirenz.sideEffects_DoseReduction
+  rFluoropyrimidines50percentReduce.LowActivityDPYD                                                                           : true # fluoropyrimidines.sideEffects_50percentReduce
+  rFluoropyrimidinesAvoid.VeryLowActivityDPYD                                                                                 : false
+  rFluoropyrimidinesStandardDosage.NormalActivityDPYD                                                                         : false
+  rIvacaftorAviodDueToUnknownEffect.G551D_CFTRNonCarrier                                                                      : false
+  rIvacaftorStandardDosage.G551D_CFTRCarrier                                                                                  : true # ivacaftor.favorableResponse_StandartDosage
+  rLansoprazoleIncreaseDoseDueToLowEfficacy.HighMetabolismLansoprazole                                                        : false
+  rLansoprazoleStandardDosage.NormalMetabolismLansoprazole                                                                    : true # lansoprazole.noSideEffects_standardDosage
+  rOmeprazoleIncreaseDoseDueToLowEfficacy.HighMetabolismOmerpazole                                                            : false
+  rOmeprazoleStandardDosage.NormalMetabolismOmerpazole                                                                        : true # omeprazole.noSideEffects_standardDosage
+  rOndansetronStandardDosage.NormalMetabolismOndansetron                                                                      : true # ondansetron.noSideEffects_standardDosage
+  rPegINFalfaWeightRisks.FavorableResponsePegINFalfa                                                                          : true # pegylatedInterferonsAlfa.favorableResponse_weightRisks
+  rPegINFalfaWeightRisksDueToUnfavorableResponse.UnfavorableResponsePegINFalfa                                                : false
+  # rPhenytoin25percentReduce.LowActivityCYP2C9                                                                                 : false # not implemented yet
+  # rPhenytoin50percentReduce.VeryLowActivityCYP2C9                                                                             : true # phenytoin.sideEffects_50percentReduce # depends on HLA-B, not implemented yet
+  # rPhenytoinStandardDosage.NormalActivityCYP2C9                                                                               : false # not implemented yet
+  rPossibleTherapeuticDrugMonitoringOfLamotrogine.ChangedClearanceOfLamotrigine                                               : true # lamotrigine.higherClearance
+  rPravastatinUnknownActivity.RareVariantHMGCR                                                                                : true # pravastatin.unknownEffect
+  rPropafenoneIncreaseDose.LowMetabolismPropafenon                                                                            : false
+  rPropafenoneTitrateOrSwitch.ChangedMetabolismPropafenon                                                                     : false
+#  rRasburicaseAvoidDueToSideEffects.VeryLowActivityG6PD                                                                       : false
+#  rRasburicaseMeasureG6PDActivityDueToVariablePhenotype.LowActivityG6PD                                                       : true # rasburicase.variable_MeasureG6PDActivity
+#  rRasburicaseStandardDosage.NormalActivityG6PD                                                                               : false
+  rRibavirinWeightRisks.FavorableResponseRibavirin                                                                            : true # ribavirin.favorableResponse_WeightRisks
+  rRibavirinWeightRisksDueToUnfavorableResponse.UnfavorableResponseRibavirin                                                  : false
+  rRisperidoneAvoidOrTitrateDose.ChangedRisperidonMetabolism                                                                  : false
+  rRisperidoneUse.NormalRisperidonMetabolism                                                                                  : true # risperidone.noSideEffects
+  rSelectiveSerotoninReuptakeInhibitors50percentDoseReduction.VeryLowMetabolismSelectiveSerotoninReuptakeInhibitors           : false
+  rSelectiveSerotoninReuptakeInhibitors50percentDoseReductionCYP2C19.VeryLowMetabolismSomeSelectiveSerotoninReuptakeInhibitors: false
+  rSelectiveSerotoninReuptakeInhibitors50percentDoseReductionCYP2D6.VeryLowMetabolismSomeSelectiveSerotoninReuptakeInhibitors : false
+  rSelectiveSerotoninReuptakeInhibitorsStandardDosage.NormalMetabolismSelectiveSerotoninReuptakeInhibitors                    : true # selectiveSerotoninReuptakeInhibitors.noSideEffects_standardDosage
+  rSimvastatinDosingChangeOrAvoidDueToNonEffective.UnfavorableVariantHMGCR                                                    : false
+  rSimvastatinStandardDosage.NormalRiskOfSimvastatinAssociatedMyopathy                                                        : false
+  rSimvastatinUnknownActivity.RareVariantHMGCR                                                                                : false
+  rTacrolimusIncreaseStartingDoseDueToNonEffective.HighMetabolismTacrolimus                                                   : false
+  rTacrolimusStandardDosage.NormalMetabolismTacrolimus                                                                        : true # tacrolimus.noSideEffects_standardDosage
+  rTakeEstradiolUseIntoAccount.ChangedClearanceOfLamotrigine                                                                  : true # lamotrigine.higherClearance
+  rTakeSmokingHabbitIntoAccount.ChangedClearanceOfLamotrigine                                                                 : true # lamotrigine.higherClearance
+  rThiopurinesAvoidOrGreatlyReduce.VeryLowActivityTPMT                                                                        : false
+  rThiopurinesReduce.LowActivityTPMT                                                                                          : false
+  rThiopurinesStandardDosage.NormalActivityTPMT                                                                               : false
+  rTitrateDoseVenlafaxine.HighVenlafaxineMetabolism                                                                           : false
+  rTramadolAvoidDueToNonEffective.VeryLowActivityCYP2D6                                                                       : false
+  rTramadolIncreaseOrSwitchDueToNonEffective.LowActivityCYP2D6                                                                : false
+  rTramadolReduceOrSwitchDueSideEffects.HighActivityCYP2D6                                                                    : false
+  rTramadolStandardDosage.NormalActivityCYP2D6                                                                                : true # tramadol.noSideEffects_standardDosage
+  rTricyclicAntidepressants25percentDoseReduction.VeryLowMetabolismTricyclicAntidepressants                                   : false
+  rTricyclicAntidepressants50percentDoseReduction.VeryLowMetabolismTricyclicAntidepressants                                   : false
+  rTricyclicAntidepressantsStandardDosage.NormalMetabolismTricyclicAntidepressants                                            : true # tricyclicAntidepressants.noSideEffects_standardDosage
+  rTropisetronStandardDosage.NormalMetabolismTropisetron                                                                      : true # tropisetron.noSideEffects_standardDosage
+  rUseACEInhibitors.FavorableVariantKCNIP4                                                                                    : false
+  rUseAspirin.FavorableVariantPTGS1                                                                                           : false
+  rUseAspirinDueToNoSideEffects.FavorableVariantLTC4S                                                                         : false
+  rUseAtomoxetine.NormalMetabolismAtomoxetine                                                                                 : true # atomoxetine.effective
+  rUseAtorvastatin.FavorableAPOEVariant                                                                                       : true # atorvastatin.effective
+  rUseAtorvastatinWithAwareness.UnfavorableAPOEVariant                                                                        : false
+  rUseAtypicalAntipsychotics.FavorableVariantMC4R                                                                             : true # atypicalAntipsychotics.noSideEffects
+  rUseBupropionForSmokingCessation.DRD2favourable                                                                             : false
+  rUseCaptopril.FavorableVariantACE                                                                                           : false
+  rUseDiclofenac.LowRiskBleeding                                                                                              : false
+  rUseEstrogenContainingPills.LeidenMutationAbsent                                                                            : false
+  rUseMetformin.NormalMetforminMetabolism                                                                                     : true # metformin.HighEfficacyNormalMetabolism
+  rUseMetforminWithAwareness.AlteredMetabolismOrEfficacy                                                                      : false
+  rUseMetoprolol.NormalMetoprololMetabolism                                                                                   : true # metoprolol.effective
+  rUsePravastatin.FavorableVariantHMGCR                                                                                       : false
+  rUsePropafenone.NormalMetabolismPropafenon                                                                                  : true # propafenone.effective
+  rUseSildenafil.HighChanceEfficacy                                                                                           : false
+  rUseSildenafilWithAwareness.ModerateChanceEfficacy                                                                          : true # sildenafil.lowEfficacy
+  rUseTamoxifen.NormalResponseToTherapy                                                                                       : true # tamoxifen.effective
+  rUseThioamides.FavorableVariantHLA_B                                                                                        : true # thioamides.noSideEffects_standardDosage
+  rUseVenlafaxine.NormalVenlafaxineMetabolism                                                                                 : true # venlafaxine.effective
+  rUseWarfarinCalc.Anyway                                                                                                     : true # warfarin.knownPGxContribution
+  rVoriconazoleStandardDosage.NormalMetabolismVoriconazole                                                                    : true # voriconazole.noSideEffects_standardDosage
+  # rAvoidAtazanavirDueToUnknownEffect.UnknownActivityUGT1A1                                                                    : false
+  rAvoidAtomoxetineDueToUnknownEffect.UnknownActivityCYP2D6                                                                   : false
+  rAvoidClopidogrelDueToUnknownEffect.UnknownActivityCYP2C19                                                                  : false
+  rAvoidCodeineDueToUnknownEffect.UnknownActivityCYP2D6                                                                        : false
+  rAvoidLansoprasoleDueToUnknownEffect.UnknownActivityCYP2C19                                                                 : false
+  rAvoidMetoprololDueToUnknownEffect.UnknownActivityCYP2D6                                                                    : false
+  rAvoidOmeprazoleDueToUnknownEffect.UnknownActivityCYP2C19                                                                   : false
+  rAvoidOndansetronDueToUnknownEffect.UnknownActivityCYP2D6                                                                   : false
+  # rAvoidPhenytoinDueToUnknownEffect.UnknownActivityCYP2C9HLAB1502Negative                                                     : false
+#  rAvoidRasburicaseDueToUnknownEffect.UnknownActivityG6PD                                                                     : false
+  rAvoidRisperidoneDueTounknownEffect.UnknownActivityCYP2D6                                                                   : false
+  rAvoidSelectiveSerotoninReuptakeInhibitorsDueToUnknownEffect.UnknownActivityCYP2D6OrCYP2C19                                 : false
+  rAvoidTacrolimusDueToUnknownEffect.UnknownActivityCYP3A5                                                                    : false
+  rAvoidThiopurinesDueToUnknownEffect.UnknownActivityTPMT                                                                     : true # thiopurines.unknownEffect_avoid
+  rAvoidTramadolDueToUnknownEffect.UnknownActivityCYP2D6                                                                      : false
+  rAvoidTricyclicAntidepressantsDueToUnknownEffect.UnknownActivityCYP2D6OrCYP2C19                                             : false
+  rAvoidTropisetronDueToUnknownEffect.UnknownActivityCYP2D6                                                                   : false
+  rAvoidVenlafaxineDueToUnknownEffect.UnknownActivityCYP2D6                                                                   : false
+  rAvoidVoriconazoleDueToUnknownEffect.UnknownActivityCYP2C19                                                                 : false

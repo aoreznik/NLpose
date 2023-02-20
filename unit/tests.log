@@ -1,0 +1,1281 @@
+GDSL: exists("rs123")
+Expected: true
+Result: true
+
+GDSL: exists("rs000")
+Expected: false
+Result: false
+
+GDSL: count("rs123 FWD", "T")
+Expected: 1
+Result: 1
+
+GDSL: atLeast(2, exists("rs123"), exists("rs321"))
+Expected: true
+Result: true
+
+GDSL: or(exists("rs123"), exists("rs124"))
+Expected: true
+Result: true
+
+GDSL: or(exists("rs000"), exists("rs124"))
+Expected: false
+Result: false
+
+GDSL: any(exists("rs000"), exists("rs124"))
+Expected: false
+Result: false
+
+GDSL: and(exists("rs000"), exists("rs124"))
+Expected: false
+Result: false
+
+GDSL: and(exists("rs123"), exists("rs321"))
+Expected: true
+Result: true
+
+GDSL: all(exists("rs123"), exists("rs321"))
+Expected: true
+Result: true
+
+GDSL: sum(count("rs123 FWD", "T"),count("rs321 FWD", "T"))
+Expected: 2
+Result: 2
+
+GDSL: sum(1)
+Expected: 1
+Result: 1
+
+GDSL: sum(count("rs000 FWD", "T"), count("rs321 FWD", "T"))
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) > 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) >= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) < 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) <= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) == 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) + 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) - 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) * 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) / 1
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) ^ 1
+Expected: NULL
+Result: NULL
+
+GDSL: not(and(exists("rs123"), exists("rs321")))
+Expected: false
+Result: false
+
+GDSL: count("rs222 REV", "AT")
+Expected: 1
+Result: 1
+
+GDSL: count("rs222 REV", "TA")
+Expected: 1
+Result: 1
+
+GDSL: count("rs333 REV", "AT")
+Expected: 2
+Result: 2
+
+GDSL: count("rs333 REV", "TA")
+Expected: 2
+Result: 2
+
+GDSL: ("rs123 FWD T/N")
+Expected: true
+Result: true
+
+GDSL: ("rs123 FWD T/A")
+Expected: true
+Result: true
+
+GDSL: ("rs123 FWD A/T")
+Expected: true
+Result: true
+
+GDSL: ("rs123 FWD A")
+Expected: false
+Result: false
+
+GDSL: ("rs123 FWD T")
+Expected: false
+Result: false
+
+GDSL: ("rs123 REV A/N")
+Expected: true
+Result: true
+
+GDSL: ("rs123 REV A/T")
+Expected: true
+Result: true
+
+GDSL: ("rs123 REV T/A")
+Expected: true
+Result: true
+
+GDSL: ("rs123 REV T")
+Expected: false
+Result: false
+
+GDSL: ("rs123 REV A")
+Expected: false
+Result: false
+
+GDSL: ("rs222 REV AT/CT")
+Expected: true
+Result: true
+
+GDSL: ("rs222 REV CT/AT")
+Expected: true
+Result: true
+
+GDSL: ("rs222 FWD AG/AT")
+Expected: true
+Result: true
+
+GDSL: ("rs222 FWD AG/N")
+Expected: true
+Result: true
+
+GDSL: ("rs222 FWD AG")
+Expected: false
+Result: false
+
+GDSL: ("rs111 FWD T")
+Expected: true
+Result: true
+
+GDSL: ("rs111 REV A")
+Expected: true
+Result: true
+
+GDSL: ("rs111 FWD I")
+Expected: true
+Result: true
+
+GDSL: ("rs111 REV I")
+Expected: true
+Result: true
+
+GDSL: ("rs111 FWD N")
+Expected: true
+Result: true
+
+GDSL: ("rs111 REV N")
+Expected: true
+Result: true
+
+GDSL: ("rs111 FWD T/T")
+Expected: false
+Result: false
+
+GDSL: ("rs111 FWD TT")
+Expected: false
+Result: false
+
+GDSL: ("rs111 FWD A")
+Expected: false
+Result: false
+
+GDSL: ("rs111 FWD AA")
+Expected: false
+Result: false
+
+GDSL: ("rs111 FWD D")
+Expected: false
+Result: false
+
+GDSL: ("rs111 REV D")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 FWD ATC")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 FWD CTA")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 REV TAG")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 REV GAT")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 FWD I")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 REV I")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 FWD N")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 REV N")
+Expected: true
+Result: true
+
+GDSL: ("rs1212 FWD AT/C")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 FWD TT")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 FWD A")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 FWD AA")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 FWD D")
+Expected: false
+Result: false
+
+GDSL: ("rs1212 REV D")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD D/I")
+Expected: true
+Result: true
+
+GDSL: ("rs444 REV D/I")
+Expected: true
+Result: true
+
+GDSL: ("rs444 FWD I/D")
+Expected: true
+Result: true
+
+GDSL: ("rs444 REV I/D")
+Expected: true
+Result: true
+
+GDSL: ("rs444 FWD -/N")
+Expected: true
+Result: true
+
+GDSL: ("rs444 REV -/N")
+Expected: true
+Result: true
+
+GDSL: ("rs444 FWD D/N")
+Expected: true
+Result: true
+
+GDSL: ("rs444 REV D/N")
+Expected: true
+Result: true
+
+GDSL: ("rs444 REV N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs444 FWD D/D")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD I/I")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD -/-")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD -/AT")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD D/TTA")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD -")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD N")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD D")
+Expected: false
+Result: false
+
+GDSL: ("rs444 FWD I")
+Expected: false
+Result: false
+
+GDSL: ("rs555 REV I/I")
+Expected: true
+Result: true
+
+GDSL: ("rs555 FWD I/I")
+Expected: true
+Result: true
+
+GDSL: ("rs555 FWD N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs555 REV N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs555 FWD A/T")
+Expected: false
+Result: false
+
+GDSL: ("rs555 FWD A")
+Expected: false
+Result: false
+
+GDSL: ("rs555 FWD N")
+Expected: false
+Result: false
+
+GDSL: ("rs555 FWD D/D")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD -/-")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD D/D")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD D/I")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD I/I")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD A/A")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD D/T")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD D")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD -")
+Expected: false
+Result: false
+
+GDSL: ("rs777 FWD -/C")
+Expected: true
+Result: true
+
+GDSL: ("rs777 FWD D/C")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV -/G")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV D/G")
+Expected: true
+Result: true
+
+GDSL: ("rs777 FWD C/-")
+Expected: true
+Result: true
+
+GDSL: ("rs777 FWD C/D")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV G/-")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV G/D")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV I/D")
+Expected: true
+Result: true
+
+GDSL: ("rs777 REV I/-")
+Expected: true
+Result: true
+
+GDSL: ("rs888 FWD D/D")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV D/D")
+Expected: true
+Result: true
+
+GDSL: ("rs888 FWD -/-")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV -/-")
+Expected: true
+Result: true
+
+GDSL: ("rs888 FWD -/D")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV -/D")
+Expected: true
+Result: true
+
+GDSL: ("rs888 FWD D/-")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV D/-")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV N/D")
+Expected: true
+Result: true
+
+GDSL: ("rs888 REV N/-")
+Expected: true
+Result: true
+
+GDSL: ("rs999 FWD I")
+Expected: true
+Result: true
+
+GDSL: ("rs999 REV I")
+Expected: true
+Result: true
+
+GDSL: ("rs999 FWD N")
+Expected: true
+Result: true
+
+GDSL: ("rs999 REV N")
+Expected: true
+Result: true
+
+GDSL: ("rs999 FWD AT")
+Expected: false
+Result: false
+
+GDSL: ("rs999 FWD -")
+Expected: false
+Result: false
+
+GDSL: ("rs999 FWD D")
+Expected: false
+Result: false
+
+GDSL: ("rs999 FWD N/N")
+Expected: false
+Result: false
+
+GDSL: ("rs1010 FWD D")
+Expected: true
+Result: true
+
+GDSL: ("rs1010 REV D")
+Expected: true
+Result: true
+
+GDSL: ("rs1010 FWD -")
+Expected: true
+Result: true
+
+GDSL: ("rs1010 REV -")
+Expected: true
+Result: true
+
+GDSL: ("rs1010 FWD N")
+Expected: true
+Result: true
+
+GDSL: ("rs1010 REV N")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 FWD -")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 REV -")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 FWD D")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 REV D")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 FWD N")
+Expected: true
+Result: true
+
+GDSL: ("rs1111 REV N")
+Expected: true
+Result: true
+
+GDSL: ("rs000 REV AT/CT")
+Expected: NULL
+Result: NULL
+
+GDSL: count("rs000 REV", "AT")
+Expected: NULL
+Result: NULL
+
+GDSL: count("rs123 FWD", "N")
+Expected: 2
+Result: 2
+
+GDSL: count("rs111 FWD", "N")
+Expected: 1
+Result: 1
+
+GDSL: blood.value >= 120
+Expected: true
+Result: true
+
+GDSL: atLeast(2, blood.value >= 120, "rs123 FWD T/N")
+Expected: true
+Result: true
+
+GDSL: somevar.float == 5.05
+Expected: true
+Result: true
+
+GDSL: somevar.float  > 5.05
+Expected: false
+Result: false
+
+GDSL: somevar.float  < 5.05
+Expected: false
+Result: false
+
+GDSL: somevar.null
+Expected: NULL
+Result: NULL
+
+GDSL: if(gender.male,  1, 0)
+Expected: 1
+Result: 1
+
+GDSL: if(somevar.null, 1, 0)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(somevar.null, blood.value >= 120, "rs123 FWD T/N")
+Expected: NULL
+Result: NULL
+
+GDSL: age > 30
+Expected: true
+Result: true
+
+GDSL: age > 40
+Expected: false
+Result: false
+
+GDSL: if(age>30,  1, 2)
+Expected: 1
+Result: 1
+
+GDSL: if(age<30,  1, 2)
+Expected: 2
+Result: 2
+
+GDSL: if(age>=30, true, false)
+Expected: true
+Result: true
+
+GDSL: or(somevar.null, gender.male)
+Expected: true
+Result: true
+
+GDSL: or(gender.male, somevar.null)
+Expected: true
+Result: true
+
+GDSL: or(not(gender.male), somevar.null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(somevar.null, gender.male)
+Expected: NULL
+Result: NULL
+
+GDSL: and(gender.male, somevar.null)
+Expected: NULL
+Result: NULL
+
+GDSL: ("rs222 REV -/-")
+Expected: false
+Result: false
+
+GDSL: 1 + 2 * 3
+Expected: 7
+Result: 7
+
+GDSL: (1 + 1) ^ 3
+Expected: 8
+Result: 8
+
+GDSL: not(
+  or(
+    and(
+      exists("rs4988235"),
+      "rs4988235 REV T/N"
+    ),
+    "rs182549 FWD T/N"
+  )
+)
+
+Expected: false
+Result: false
+
+GDSL: or (
+  and (
+    exists ("rs4577902"),
+    sum (
+      count ("rs2025804 FWD", "G"),
+      count ("rs4577902 REV", "T")
+    ) == 0
+  ),
+  and (
+    not (exists ("rs4577902")),
+    sum (
+      count ("rs2025804 FWD", "G"),
+      count ("rs791607 REV", "T")
+    ) == 0
+  )
+)
+
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD ATC/T")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD CTA/T")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD T/CTA")
+Expected: true
+Result: true
+
+GDSL: ("rs666 FWD T/ATC")
+Expected: true
+Result: true
+
+GDSL: ("rs666 REV A/TAG")
+Expected: true
+Result: true
+
+GDSL: ("rs666 REV TAG/A")
+Expected: true
+Result: true
+
+GDSL: ("rs666 REV A/GAT")
+Expected: true
+Result: true
+
+GDSL: ("rs666 REV GAT/A")
+Expected: true
+Result: true
+
+GDSL: ("rs666 REV TGA/A")
+Expected: false
+Result: false
+
+GDSL: ("rs666 REV A/AGT")
+Expected: false
+Result: false
+
+GDSL: ("rs666 FWD ATC")
+Expected: false
+Result: false
+
+GDSL: ("rs666 REV TAG")
+Expected: false
+Result: false
+
+GDSL: ("rs666 REV N")
+Expected: false
+Result: false
+
+GDSL: ("rs666 REV N/N")
+Expected: true
+Result: true
+
+GDSL: ("rs000 FWD A/GAT")
+Expected: NULL
+Result: NULL
+
+GDSL: ("rs000 REV GAT/A")
+Expected: NULL
+Result: NULL
+
+GDSL: ("rs000 REV N/N")
+Expected: NULL
+Result: NULL
+
+GDSL: qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+
+Expected: 128
+Result: 128
+
+GDSL: qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+
+Expected: 136
+Result: 136
+
+GDSL: qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+
+Expected: 40
+Result: 40
+
+GDSL: qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+
+Expected: 192
+Result: 192
+
+GDSL: and ( "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )
+Expected: NULL
+Result: NULL
+
+GDSL: and ( "rs1805086 REV A/A", "rs2854464 FWD A/A" )
+Expected: NULL
+Result: NULL
+
+GDSL: and ( "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: and ( "rs1805086 REV G/G", "rs2854464 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast (2, "rs1805086 REV A/A", "rs2854464 FWD A/A" )
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast (2, "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1805086 REV G/G", "rs2854464 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV A/A", not ("rs2222222 FWD A/A") )
+Expected: true
+Result: true
+
+GDSL: atLeast (2, "rs1111111 REV A/A", "rs2222222 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV A/G", not ( "rs2222222 FWD A/A" ) )
+Expected: false
+Result: false
+
+GDSL: atLeast (2, "rs1111111 REV G/G", "rs2222222 FWD A/A" )
+Expected: false
+Result: false
+
+GDSL: sum (
+    count ("rs17646946 FWD" , "A") * -0.29,
+    count ("rs7349332 FWD" , "T") * 0.2,
+    count ("rs1556547 FWD" , "G") * -0.1 )   >= 0.007
+
+Expected: false
+Result: false
+
+GDSL: 9 >= sum(9 >= sum(9 >= sum( sum(value.null) >= 9 )))
+Expected: NULL
+Result: NULL
+
+GDSL: sum(1,2) > 9
+Expected: false
+Result: false
+
+GDSL: sum(1,2) + 9
+Expected: 12
+Result: 12
+
+GDSL: sum(1,8) >= 9
+Expected: true
+Result: true
+
+GDSL: sum(1,1) >= 9
+Expected: false
+Result: false
+
+GDSL: sum(1,2) < 9
+Expected: true
+Result: true
+
+GDSL: sum(1,2) <= 9
+Expected: true
+Result: true
+
+GDSL: sum(1,2) == 3
+Expected: true
+Result: true
+
+GDSL: sum(1,2) - 9
+Expected: -6
+Result: -6
+
+GDSL: sum(1,2) * 9
+Expected: 27
+Result: 27
+
+GDSL: sum(1,2) / 3
+Expected: 1
+Result: 1
+
+GDSL: sum(1,2) ^ 3
+Expected: 27
+Result: 27
+
+GDSL: sum(value.null) >= 9
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) > 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) >= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) < 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) <= 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) == 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) + 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) - 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) * 0
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) / 1
+Expected: NULL
+Result: NULL
+
+GDSL: sum(count("rs000 FWD", "T"),count("rs321 FWD", "T")) ^ 1
+Expected: NULL
+Result: NULL
+
+GDSL: value.null + 1
+Expected: NULL
+Result: NULL
+
+GDSL: sum(1,2) > 3 * 3
+Expected: false
+Result: false
+
+GDSL: 3 * 3 < sum(1,2)
+Expected: false
+Result: false
+
+GDSL: true | false
+Expected: true
+Result: true
+
+GDSL: value.null | true
+Expected: NULL
+Result: NULL
+
+GDSL: true | value.null
+Expected: NULL
+Result: NULL
+
+GDSL: false | value.null
+Expected: NULL
+Result: NULL
+
+GDSL: value.null & true
+Expected: NULL
+Result: NULL
+
+GDSL: true & value.null
+Expected: NULL
+Result: NULL
+
+GDSL: not(true)
+Expected: false
+Result: false
+
+GDSL: not(false)
+Expected: true
+Result: true
+
+GDSL: not(null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(true,  true)
+Expected: true
+Result: true
+
+GDSL: or(true,  false)
+Expected: true
+Result: true
+
+GDSL: or(false, false)
+Expected: false
+Result: false
+
+GDSL: or(true,  null)
+Expected: true
+Result: true
+
+GDSL: or(false, null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(true,  true)
+Expected: true
+Result: true
+
+GDSL: and(true,  false)
+Expected: false
+Result: false
+
+GDSL: and(false, false)
+Expected: false
+Result: false
+
+GDSL: and(true,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(false, null)
+Expected: false
+Result: false
+
+GDSL: and(null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(0, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, true,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, false, false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  null)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, true,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(1, null,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, null,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(1, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(2, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(2, true,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, null,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(2, null,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(3, true,  true)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, true,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  true)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  null)
+Expected: false
+Result: false
+
+GDSL: atLeast(null, true,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, true,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, false, false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null, null, true)
+Expected: true
+Result: true
+
+GDSL: or(null, null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null, null, true)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null, null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(false, null, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(true, true)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, null)
+Expected: true
+Result: true
+
+GDSL: firstDefined(false, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, false)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, true)
+Expected: true
+Result: true
+
+GDSL: firstDefined(null, false)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: firstDefined(true, false, null)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, null, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(false, true, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, null, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, true, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(null, false, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, null, null)
+Expected: NULL
+Result: NULL
+
+
+
+Errors/Count: 0/307
+

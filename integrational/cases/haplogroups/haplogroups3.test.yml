@@ -1,0 +1,11 @@
+#
+# haplo2
+#
+
+values:
+  gender.male   : true
+  gender.female : false
+
+tests:
+  haplo/Y       : J2b
+  haplo/MT      : C4

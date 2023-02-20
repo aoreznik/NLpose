@@ -1,0 +1,28 @@
+sample : |
+
+values :
+  'qPAworkVigorousPresent.no' : true
+  'qPAworkVigorousDaysPerWeek' : 0
+  'qPAworkVigorousTimePerDay' : 0
+  'qPAworkModeratePresent.yes' : true
+  'qPAworkModerateDaysPerWeek' : 6
+  'qPAworkModerateTimePerDay' : 7
+  'qPAtravelBicycleUse.yes' : true
+  'qPAtravelBicycleDaysPerWeek' : 1
+  'qPAtravelBicycleTimePerDay' : 2
+  'qPArecreationalVigorousPresent.yes' : true
+  'qPArecreationalVigorousDaysPerWeek' : 1
+  'qPArecreationalVigorousTimePerDay' : 1
+  'qPArecreationalModeratePresent.yes' : true
+  'qPArecreationalModerateDaysPerWeek' : 1
+  'qPArecreationalModerateTimePerDay' : 2
+
+tests :
+    m1:
+        exp: |
+            qPAworkVigorousDaysPerWeek         * qPAworkVigorousTimePerDay         * 8 +
+            qPAworkModerateDaysPerWeek         * qPAworkModerateTimePerDay         * 4 +
+            qPAtravelBicycleDaysPerWeek        * qPAtravelBicycleTimePerDay        * 4 +
+            qPArecreationalVigorousDaysPerWeek * qPArecreationalVigorousTimePerDay * 8 +
+            qPArecreationalModerateDaysPerWeek * qPArecreationalModerateTimePerDay * 4
+        val                                                                                 : 192

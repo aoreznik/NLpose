@@ -1,0 +1,24 @@
+sample : |
+    rs1805086   T   T
+    rs1111111   T   T
+    rs2222222   T   T
+
+values :
+
+tests  :
+    # Current logic
+    and ( "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )            : null
+    and ( "rs1805086 REV A/A", "rs2854464 FWD A/A" )                  : null
+    and ( "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )          : false
+    and ( "rs1805086 REV G/G", "rs2854464 FWD A/A" )                  : false
+
+    # Version 2
+    atLeast (2, "rs1805086 REV A/A", not ("rs2854464 FWD A/A") )      : null
+    atLeast (2, "rs1805086 REV A/A", "rs2854464 FWD A/A" )            : null
+    atLeast (2, "rs1805086 REV A/G", not ( "rs2854464 FWD A/A" ) )    : false
+    atLeast (2, "rs1805086 REV G/G", "rs2854464 FWD A/A" )            : false
+
+    atLeast (2, "rs1111111 REV A/A", not ("rs2222222 FWD A/A") )      : true
+    atLeast (2, "rs1111111 REV A/A", "rs2222222 FWD A/A" )            : false
+    atLeast (2, "rs1111111 REV A/G", not ( "rs2222222 FWD A/A" ) )    : false
+    atLeast (2, "rs1111111 REV G/G", "rs2222222 FWD A/A" )            : false

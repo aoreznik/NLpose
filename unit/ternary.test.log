@@ -1,0 +1,276 @@
+GDSL: not(true)
+Expected: false
+Result: false
+
+GDSL: not(false)
+Expected: true
+Result: true
+
+GDSL: not(null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(true,  true)
+Expected: true
+Result: true
+
+GDSL: or(true,  false)
+Expected: true
+Result: true
+
+GDSL: or(false, false)
+Expected: false
+Result: false
+
+GDSL: or(true,  null)
+Expected: true
+Result: true
+
+GDSL: or(false, null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(true,  true)
+Expected: true
+Result: true
+
+GDSL: and(true,  false)
+Expected: false
+Result: false
+
+GDSL: and(false, false)
+Expected: false
+Result: false
+
+GDSL: and(true,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(false, null)
+Expected: false
+Result: false
+
+GDSL: and(null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(0, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, true,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, false, false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(0, null,  null)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, true,  false)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(1, null,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(1, null,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(1, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(2, true,  true)
+Expected: true
+Result: true
+
+GDSL: atLeast(2, true,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, null,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(2, null,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(2, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(3, true,  true)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, true,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, false, false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  true)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  false)
+Expected: false
+Result: false
+
+GDSL: atLeast(3, null,  null)
+Expected: false
+Result: false
+
+GDSL: atLeast(null, true,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, true,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, false, false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  true)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  false)
+Expected: NULL
+Result: NULL
+
+GDSL: atLeast(null, null,  null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null)
+Expected: NULL
+Result: NULL
+
+GDSL: or(null, null, true)
+Expected: true
+Result: true
+
+GDSL: or(null, null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null, null, true)
+Expected: NULL
+Result: NULL
+
+GDSL: and(null, null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: and(false, null, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(true, true)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, null)
+Expected: true
+Result: true
+
+GDSL: firstDefined(false, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, false)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, true)
+Expected: true
+Result: true
+
+GDSL: firstDefined(null, false)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, null)
+Expected: NULL
+Result: NULL
+
+GDSL: firstDefined(true, false, null)
+Expected: true
+Result: true
+
+GDSL: firstDefined(true, null, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(false, true, null)
+Expected: false
+Result: false
+
+GDSL: firstDefined(false, null, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, true, false)
+Expected: true
+Result: true
+
+GDSL: firstDefined(null, false, true)
+Expected: false
+Result: false
+
+GDSL: firstDefined(null, null, null)
+Expected: NULL
+Result: NULL
+
+
+
+Errors/Count: 0/68
+

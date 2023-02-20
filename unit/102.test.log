@@ -1,0 +1,105 @@
+GDSL: not(
+  or(
+    and(
+      exists("rs4988235"),
+      "rs4988235 REV T/N"
+    ),
+    "rs182549 FWD T/N"
+  )
+)
+
+Expected: false
+Result: false
+
+GDSL: or (
+  and (
+    exists ("rs4577902"),
+    sum (
+      count ("rs2025804 FWD", "G"),
+      count ("rs4577902 REV", "T")
+    ) == 0
+  ),
+  and (
+    not (exists ("rs4577902")),
+    sum (
+      count ("rs2025804 FWD", "G"),
+      count ("rs791607 REV", "T")
+    ) == 0
+  )
+)
+
+Expected: false
+Result: false
+
+GDSL: "rs666 FWD ATC/T"
+Expected: true
+Result: true
+
+GDSL: "rs666 FWD CTA/T"
+Expected: true
+Result: true
+
+GDSL: "rs666 FWD T/CTA"
+Expected: true
+Result: true
+
+GDSL: "rs666 FWD T/ATC"
+Expected: true
+Result: true
+
+GDSL: "rs666 REV A/TAG"
+Expected: true
+Result: true
+
+GDSL: "rs666 REV TAG/A"
+Expected: true
+Result: true
+
+GDSL: "rs666 REV A/GAT"
+Expected: true
+Result: true
+
+GDSL: "rs666 REV GAT/A"
+Expected: true
+Result: true
+
+GDSL: "rs666 REV TGA/A"
+Expected: false
+Result: false
+
+GDSL: "rs666 REV A/AGT"
+Expected: false
+Result: false
+
+GDSL: "rs666 FWD ATC"
+Expected: false
+Result: false
+
+GDSL: "rs666 REV TAG"
+Expected: false
+Result: false
+
+GDSL: "rs666 REV N"
+Expected: false
+Result: false
+
+GDSL: "rs666 REV N/N"
+Expected: true
+Result: true
+
+GDSL: "rs000 FWD A/GAT"
+Expected: NULL
+Result: NULL
+
+GDSL: "rs000 REV GAT/A"
+Expected: NULL
+Result: NULL
+
+GDSL: "rs000 REV N/N"
+Expected: NULL
+Result: NULL
+
+
+
+Errors/Count: 0/19
+

@@ -1,0 +1,410 @@
+dimensions.genetic.states[code].predicate
+HLA_B_5701.negative
+HLA_B_5701.positive
+HLA_B_5701.nodata
+HLA_B_5801.negative
+HLA_B_5801.positive
+HLA_B_5801.nodata
+and(    anticoagulantSensitivityVKORC1.negative,    CYP2C9_metabolizer.NM)
+or(    anticoagulantSensitivityVKORC1.positive,    CYP2C9_metabolizer.IM,    CYP2C9_metabolizer.pIM,    CYP2C9_metabolizer.PM,    CYP2C9_metabolizer.pPM)
+and(    anticoagulantSensitivityVKORC1.nodata,    CYP2C9_metabolizer.unknown)
+and(    anticoagulantSensitivityVKORC1.nodata,    CYP2C9_metabolizer.nodata)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    or(        CYP2C19_meatbolizer.UM,        CYP2C19_metabolizer.RM    ))
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.PM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pIM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pPM)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityZero)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.unknown,    CYP2D6_metabolizer.unknown)
+and(    CYP2C19_metabolizer.nodata,    CYP2D6_metabolizer.nodata)
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+or(    UGT1A1_metabolizer.NM,    and(        atazanavirIntolerance.negative,        or(            UGT1A1_metabolizer.unknown,            UGT1A1_metabolizer.nodata        )    ))
+or(    UGT1A1_metabolizer.IM,    and(        atazanavirIntolerance.positiveHetero,        or(            UGT1A1_metabolizer.unknown,            UGT1A1_metabolizer.nodata        )    ))
+or(    UGT1A1_metabolizer.PM,    and(        atazanavirIntolerance.positiveHomo,        or(            UGT1A1_metabolizer.unknown,            UGT1A1_metabolizer.nodata        )    ))
+and(    UGT1A1_metabolizer.unknown,    atazanavirIntolerance.nodata)
+and(    UGT1A1_metabolizer.nodata,    atazanavirIntolerance.nodata)
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+TPMT_metabolizer.NM
+TPMT_metabolizer.IM
+TPMT_metabolizer.PM
+TPMT_metabolizer.unknown
+TPMT_metabolizer.nodata
+and(    HLA_A_3101.negative,    HLA_B_1502.negative)
+and(    HLA_A_3101.positive,    HLA_B_1502.negative)
+and(    HLA_B_1502.positive)
+and(    HLA_A_3101.nodata,    HLA_B_1502.nodata)
+or(    CYP2C19_metabolizer.UM,    CYP2C19_metabolizer.RM)
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    or(        CYP2C19_meatbolizer.UM,        CYP2C19_metabolizer.RM    ))
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.PM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pIM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pPM)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityZero)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.unknown,    CYP2D6_metabolizer.unknown)
+and(    CYP2C19_metabolizer.nodata,    CYP2D6_metabolizer.nodata)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    or(        CYP2C19_meatbolizer.UM,        CYP2C19_metabolizer.RM    ))
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.PM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pIM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pPM)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityZero)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.unknown,    CYP2D6_metabolizer.unknown)
+and(    CYP2C19_metabolizer.nodata,    CYP2D6_metabolizer.nodata)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    or(        CYP2C19_meatbolizer.UM,        CYP2C19_metabolizer.RM    ))
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.PM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pIM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pPM)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityZero)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.unknown,    CYP2D6_metabolizer.unknown)
+and(    CYP2C19_metabolizer.nodata,    CYP2D6_metabolizer.nodata)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    or(        CYP2C19_meatbolizer.UM,        CYP2C19_metabolizer.RM    ))
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.PM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pIM)
+and(    or(        CYP2D6_metabolizer.unknown,        CYP2D6_metabolizer.nodata    ),    CYP2C19_metabolizer.pPM)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.unknown,        CYP2C19_metabolizer.nodata    ),    CYP2D6_metabolizer.activityZero)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.NM)
+and(    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ),    CYP2C19_metabolizer.IM)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityHalf)
+and(    or(        CYP2C19_metabolizer.UM,        CYP2C19_metabolizer.RM    ),    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityHalf)
+and(    CYP2C19_metabolizer.PM,    or(        CYP2D6_metabolizer.activityOneAndHalf,        CYP2D6_metabolizer.activityOne    ))
+and(    CYP2C19_metabolizer.NM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.IM,    CYP2D6_metabolizer.activityZero)
+and(    CYP2C19_metabolizer.unknown,    CYP2D6_metabolizer.unknown)
+and(    CYP2C19_metabolizer.nodata,    CYP2D6_metabolizer.nodata)
+or(    CYP2C19_metabolizer.UM,    CYP2C19_metabolizer.RM)
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+or(    CYP2D6_metabolizer.activityOneAndHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+or(    CYP2D6_metabolizer.activityOneAndHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+or(    CYP2C19_metabolizer.UM,    CYP2C19_metabolizer.RM)
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityOne,    CYP2D6_metabolizer.activityHalf)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2C19_metabolizer.RM
+CYP2C19_metabolizer.UM
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+CYP2C19_metabolizer.RM
+CYP2C19_metabolizer.UM
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+or(    CYP2D6_metabolizer.activityOneAndHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+factorV_Leiden.negative
+factorV_Leiden.positiveHetero
+factorV_Leiden.positiveHomo
+factorV_Leiden.nodata
+UGT1A1_metabolizer.NM
+UGT1A1_metabolizer.IM
+UGT1A1_metabolizer.PM
+UGT1A1_metabolizer.unknown
+UGT1A1_metabolizer.nodata
+CYP2C19_metabolizer.RM
+CYP2C19_metabolizer.UM
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+TPMT_metabolizer.NM
+TPMT_metabolizer.IM
+TPMT_metabolizer.PM
+TPMT_metabolizer.unknown
+TPMT_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+or(    CYP2D6_metabolizer.activityOneAndHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+HLA_B_1502.negative
+HLA_B_1502.positive
+HLA_B_1502.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2C19_metabolizer.RM
+CYP2C19_metabolizer.UM
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+or(    CYP2D6_metabolizer.activityOneAndHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+and(    anticoagulantSensitivityVKORC1.negative,    or(        CYP2C9_metabolizer.NM,        CYP2C9_metabolizer.IM,        CYP2C9_metabolizer.pIM    ))
+or(    anticoagulantSensitivityVKORC1.positive,    CYP2C9_metabolizer.PM,    CYP2C9_metabolizer.pPM)
+and(    anticoagulantSensitivityVKORC1.nodata,    CYP2C9_metabolizer.unknown)
+and(    anticoagulantSensitivityVKORC1.nodata,    CYP2C9_metabolizer.nodata)
+interferonSensitivityIFNL3.negtaive
+interferonSensitivityIFNL3.positive
+interferonSensitivityIFNL3.nodata
+interferonSensitivityIFNL3.negtaive
+interferonSensitivityIFNL3.positive
+interferonSensitivityIFNL3.nodata
+interferonSensitivityIFNL3.negtaive
+interferonSensitivityIFNL3.positive
+interferonSensitivityIFNL3.nodata
+HLA_B_1502.positive
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.NM)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.IM)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.pIM)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.PM)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.pPM)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.unknown)
+and(    HLA_B_1502.negative,    CYP2C9_metabolizer.nodata)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.nodata)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.NM)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.IM)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.pIM)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.PM)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.pPM)
+and(    HLA_B_1502.nodata,    CYP2C9_metabolizer.unknown)
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+G6PD_activity.NM
+G6PD_activity.PM
+G6PD_activity.unknown
+G6PD_activity.nodata
+or(    CYP2C19_metabolizer.RM,    CYP2C19_metabolizer.UM)
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+SLCO1B1_activity.NM
+SLCO1B1_activity.IM
+SLCO1B1_activity.pIM
+SLCO1B1_activity.PM
+SLCO1B1_activity.pIM
+SLCO1B1_activity.pRM
+SLCO1B1_activity.unknown
+SLCO1B1_activity.nodata
+CYP3A5_metabolizer.NM
+CYP3A5_metabolizer.IM
+CYP3A5_metabolizer.PM
+CYP3A5_metabolizer.pIM
+CYP3A5_metabolizer.unknown
+CYP3A5_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+CYP2D6_metabolizer.activityOne
+CYP2D6_metabolizer.activityHalf
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+TPMT_metabolizer.NM
+TPMT_metabolizer.IM
+TPMT_metabolizer.PM
+TPMT_metabolizer.unknown
+TPMT_metabolizer.nodata
+CYP2D6_metabolizer.activityZero
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityOneAndHalf
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2D6_metabolizer.activityOneAndHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+CYP2C19_metabolizer.RM
+CYP2C19_metabolizer.UM
+CYP2C19_metabolizer.NM
+CYP2C19_metabolizer.IM
+CYP2C19_metabolizer.pIM
+CYP2C19_metabolizer.PM
+CYP2C19_metabolizer.pPM
+CYP2C19_metabolizer.unknown
+CYP2C19_metabolizer.nodata
+CYP2D6_metabolizer.activityOneANdHalf
+or(    CYP2D6_metabolizer.activityHalf,    CYP2D6_metabolizer.activityOne)
+CYP2D6_metabolizer.activityZero
+CYP2D6_metabolizer.unknown
+CYP2D6_metabolizer.nodata
+DPYD_metabolizer.activityTwo
+DPYD_metabolizer.activityOneAndHalf
+DPYD_metabolizer.activityOne
+DPYD_metabolizer.activityHalf
+DPYD_metabolizer.activityZero
+DPYD_metabolizer.nodata
+DPYD_metabolizer.activityTwo
+DPYD_metabolizer.activityOneAndHalf
+DPYD_metabolizer.activityOneAndHalf
+DPYD_metabolizer.activityHalf
+DPYD_metabolizer.activityZero
+DPYD_metabolizer.nodata
+CFTR_transporter.veryResponsive
+CFTR_transporter.responsive
+CFTR_transporter.nonResponsive
+CFTR_transporter.nodata
+or(    CYP2C9_star2.nodata,    CYP2C9_star3.nodata,    warfarinSensitivityVKORC1.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    or(        CYP2C9_metabolizer.PM,        CYP2C9_metabolizer.pPM    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    or(        CYP2C9_star5.nodata,        CYP2C9_star6.nodata,        CYP2C9_star8.nodata,        CYP2C9_star11.nodata    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    or(        CYP2C9_star5.nodata,        CYP2C9_star6.nodata,        CYP2C9_star8.nodata,        CYP2C9_star11.nodata    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    or(        CYP2C9_star5.nodata,        CYP2C9_star6.nodata,        CYP2C9_star8.nodata,        CYP2C9_star11.nodata    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    warfarinInfluenceCYP2C.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    or(        warfarinInfluenceCYP4F2.positiveHetero,        warfarinInfluenceCYP4F2.positiveHomo    ),    warfarinInfluenceCYP2C.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    warfarinInfluenceCYP2C.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.negative,    warfarinInfluenceCYP2C.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    or(        warfarinInfluenceCYP2C.positiveHetero,        warfarinInfluenceCYP2C.positiveHomo    ))
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    warfarinInfluenceCYP2C.negative)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    or(        CYP2C9_star5.positiveHomo,        CYP2C9_star5.positiveHetero,        CYP2C9_star6.positiveHomo,        CYP2C9_star6.positiveHetero,        CYP2C9_star8.positiveHomo,        CYP2C9_star8.positiveHetero,        CYP2C9_star11.positiveHomo,        CYP2C9_star11.positiveHetero    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    warfarinInfluenceCYP2C.nodata)
+and(    not(CYP2C9_star2.nodata),    not(CYP2C9_star3.nodata),    not(warfarinSensitivityVKORC1.nodata),    not(CYP2C9_metabolizer.PM),    not(CYP2C9_metabolizer.pPM),    not(        or(            CYP2C9_star5.nodata,            CYP2C9_star6.nodata,            CYP2C9_star8.nodata,            CYP2C9_star11.nodata        )    ),    and(        CYP2C9_star5.negative,        CYP2C9_star6.negative,        CYP2C9_star8.negative,        CYP2C9_star11.negative    ),    or(        warfarinInfluenceGGCX.negative,        warfarinInfluenceGGCX.positiveHetero,        warfarinInfluenceGGCX.positiveHomo,        warfarinInfluenceGGCX.nodata    ),    warfarinInfluenceCYP4F2.nodata,    warfarinInfluenceCYP2C.nodata)

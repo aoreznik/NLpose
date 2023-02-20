@@ -1,0 +1,91 @@
+#
+#  logic
+#
+
+sample : |
+
+values :
+
+tests :
+    not(true)                               : false
+    not(false)                              : true
+    not(null)                               : null
+
+    or(true,  true)                         : true
+    or(true,  false)                        : true
+    or(false, false)                        : false
+    or(true,  null)                         : true
+    or(false, null)                         : null
+    or(null,  null)                         : null
+
+    and(true,  true)                        : true
+    and(true,  false)                       : false
+    and(false, false)                       : false
+    and(true,  null)                        : null
+    and(false, null)                        : false
+    and(null,  null)                        : null
+
+    atLeast(0, true,  true)                 : true
+    atLeast(0, true,  false)                : true
+    atLeast(0, false, false)                : true
+    atLeast(0, null,  true)                 : true
+    atLeast(0, null,  false)                : true
+    atLeast(0, null,  null)                 : true
+
+    atLeast(1, true,  true)                 : true
+    atLeast(1, true,  false)                : true
+    atLeast(1, false, false)                : false
+    atLeast(1, null,  true)                 : true
+    atLeast(1, null,  false)                : null
+    atLeast(1, null,  null)                 : null
+
+    atLeast(2, true,  true)                 : true
+    atLeast(2, true,  false)                : false
+    atLeast(2, false, false)                : false
+    atLeast(2, null,  true)                 : null
+    atLeast(2, null,  false)                : false
+    atLeast(2, null,  null)                 : null
+
+    atLeast(3, true,  true)                 : false
+    atLeast(3, true,  false)                : false
+    atLeast(3, false, false)                : false
+    atLeast(3, null,  true)                 : false
+    atLeast(3, null,  false)                : false
+    atLeast(3, null,  null)                 : false
+
+    atLeast(null, true,  true)              : null
+    atLeast(null, true,  false)             : null
+    atLeast(null, false, false)             : null
+    atLeast(null, null,  true)              : null
+    atLeast(null, null,  false)             : null
+    atLeast(null, null,  null)              : null
+
+    or(null)                                : null
+    and(null)                               : null
+
+    # Для успокоения души
+    or(null, null, true)                    : true
+    or(null, null, null)                    : null
+
+    and(null, null, true)                   : null
+    and(null, null, null)                   : null
+    and(false, null, null)                  : false
+
+    # non-commutative ternary logic
+    firstDefined(true, true)                : true
+    firstDefined(true, false)               : true
+    firstDefined(true, null)                : true
+    firstDefined(false, true)               : false
+    firstDefined(false, false)              : false
+    firstDefined(false, null)               : false
+    firstDefined(null, true)                : true
+    firstDefined(null, false)               : false
+    firstDefined(null, null)                : null
+
+    firstDefined(true, false, null)         : true
+    firstDefined(true, null, false)         : true
+    firstDefined(false, true, null)         : false
+    firstDefined(false, null, true)         : false
+    firstDefined(null, true, false)         : true
+    firstDefined(null, false, true)         : false
+    firstDefined(null, null, null)          : null
